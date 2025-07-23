@@ -1,0 +1,40 @@
+.statCard {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 200px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.statIconWrapper {
+  font-size: 2.5rem;
+  margin-right: 20px;
+}
+
+.statTextWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.statLabel {
+  color: #777;
+}
+
+.statProgressBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+}

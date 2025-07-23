@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css'; 
+import './style.css';
 import { FaTachometerAlt, FaHeadset, FaDollarSign, FaChevronRight } from 'react-icons/fa';
 
 function Logo() {
@@ -27,8 +27,8 @@ export default function Sidebar() {
       <nav>
         <ul className="menuList">
           <MenuItem icon={<FaTachometerAlt />} text="Dashboard" active />
-          <MenuItem icon={<FaHeadset />} text="Suportes" hasSubmenu />
-          <MenuItem icon={<FaDollarSign />} text="Financeiro" hasSubmenu />
+          {/* <MenuItem icon={<FaHeadset />} text="Suportes" hasSubmenu />
+          <MenuItem icon={<FaDollarSign />} text="Financeiro" hasSubmenu /> */}
         </ul>
       </nav>
     </aside>

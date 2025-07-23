@@ -67,3 +67,10 @@ export default tseslint.config([
   },
 ])
 ```
+
+<!-- 
+dependencias 
+
+npm install react-router-dom
+npm install react-icons
+npm install react-chartjs-2 chart.js -->
