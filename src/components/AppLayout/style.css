@@ -1,0 +1,17 @@
+.app-layout {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f7f6;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}

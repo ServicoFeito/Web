@@ -1,6 +1,6 @@
 .chartContainer {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 20px 20px 35px 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
@@ -15,6 +15,7 @@
 .chartTitle {
     font-weight: bold;
     color: #333;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .headerRight {
