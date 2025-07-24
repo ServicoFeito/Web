@@ -1,6 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import './style.css';
-import { FaEdit, FaTrashAlt, FaCheckCircle, FaEye } from 'react-icons/fa';
+import { FaEdit, FaTrashAlt, FaCheckCircle, FaEye, FaPlus } from 'react-icons/fa';
+import Button from '../../components/Button';
+import Modal from '../../components/Modal';
+import UserForm from '../../components/UserForm';
 
 const mockUsers = [
   { id: 1, name: 'José Bauer Fraga', email: 'jbf@gmail.com', password: '***', status: 'ATIVO' },
@@ -18,10 +21,21 @@ const mockUsers = [
 ];
 
 export default function Users() {
-  const [users] = useState(mockUsers);
+  const [users, setUsers] = useState(mockUsers);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+
+  const handleSaveUser = (newUserData) => {
+    const newUser = {
+      ...newUserData,
+      id: users.length + 1,
+      status: 'ATIVO',
+    };
+    setUsers(prevUsers => [...prevUsers, newUser]);
+    setIsModalOpen(false);
+  };
 
   const filteredUsers = useMemo(() => {
     return users.filter(user =>
@@ -46,6 +60,13 @@ export default function Users() {
 
   return (
     <div className="users-page-container">
+      <div className="page-header">
+        <h1 className="users-page-title">Usuários</h1>
+        <Button onClick={() => setIsModalOpen(true)}>
+          <FaPlus />
+          Adicionar Novo
+        </Button>
+      </div>
       
       <div className="table-container-card">
         <div className="table-controls">
@@ -80,39 +101,41 @@ export default function Users() {
           </div>
         </div>
 
-        <table className="users-table">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Email</th>
-              <th>Senha</th>
-              <th>Status</th>
-              <th>Operações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {paginatedUsers.map((user) => (
-              <tr key={user.id}>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>**********</td>
-                <td>
-                  <span className={`status-pill ${user.status === 'ATIVO' ? 'status-active' : 'status-inactive'}`}>
-                    {user.status}
-                  </span>
-                </td>
-                <td>
-                  <div className="action-buttons">
-                    <button className="action-button edit"><FaEdit /></button>
-                    <button className="action-button delete"><FaTrashAlt /></button>
-                    <button className="action-button activate"><FaCheckCircle /></button>
-                    <button className="action-button view"><FaEye /></button>
-                  </div>
-                </td>
+      <div className="table-scroll-wrapper">
+          <table className="users-table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Senha</th>
+                <th>Status</th>
+                <th>Operações</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {paginatedUsers.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>**********</td>
+                  <td>
+                    <span className={`status-pill ${user.status === 'ATIVO' ? 'status-active' : 'status-inactive'}`}>
+                      {user.status}
+                    </span>
+                  </td>
+                  <td>
+                    <div className="action-buttons">
+                      <button className="action-button edit"><FaEdit /></button>
+                      <button className="action-button delete"><FaTrashAlt /></button>
+                      <button className="action-button activate"><FaCheckCircle /></button>
+                      <button className="action-button view"><FaEye /></button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <div className="table-footer">
           <span className="results-text">
@@ -137,6 +160,18 @@ export default function Users() {
           </div>
         </div>
       </div>
+
+      <Modal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Adicionar Novo Usuário"
+      >
+        <UserForm 
+          onSave={handleSaveUser}
+          onCancel={() => setIsModalOpen(false)}
+        />
+      </Modal>
+
     </div>
   );
 }

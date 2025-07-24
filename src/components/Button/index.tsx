@@ -1,8 +1,13 @@
+import React from 'react';
 import './style.css';
 
-export function Button({ children, type = 'button' }) {
+export default function Button({ children, onClick, type = 'button', variant = 'primary' }) {
   return (
-    <button className="custom-button" type={type}>
+    <button
+      type={type}
+      className={`btn btn-${variant}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

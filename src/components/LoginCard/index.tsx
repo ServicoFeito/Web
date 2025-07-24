@@ -1,6 +1,6 @@
 import './style.css';
 import { Input } from '../Input';
-import { Button } from '../Button';
+import { ButtonLogin } from '../ButtonLogin';
 import logo from '../../assets/logo.png';
 
 export function LoginCard({ onFormSubmit }) {
@@ -10,7 +10,7 @@ export function LoginCard({ onFormSubmit }) {
       <form onSubmit={onFormSubmit} className="login-form">
         <Input type="text" name="usuario" placeholder="Usuário" />
         <Input type="password" name="senha" placeholder="Senha" />
-        <Button type="submit">Entrar</Button>
+        <ButtonLogin type="submit">Entrar</ButtonLogin>
       </form>
     </div>
   );

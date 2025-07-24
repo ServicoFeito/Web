@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { LoginCard } from '../../components/LoginCard';
+import { LoginCard } from '../../components/LoginCard'; 
 import './style.css';
 
 export function Login() {
