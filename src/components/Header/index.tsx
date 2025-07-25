@@ -27,7 +27,7 @@ export default function Header({ onToggleSidebar }) {
               <ul>
                 <li className="user-menu-item">
                   <FaSignOutAlt />
-                  <span>Sair</span>
+                  <a href="/Login">Sair</a>
                 </li>
               </ul>
             </div>
