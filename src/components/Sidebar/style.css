@@ -87,14 +87,32 @@
 }
 
 .submenuItem {
+  padding: 0;
+}
+
+.submenuItem a {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 12px 20px;
-  color: #555;
+  gap: 15px; 
+  padding: 12px 20px 12px 40px; 
   cursor: pointer;
   white-space: nowrap;
   font-size: 0.9rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-decoration: none; 
+  color: #555; 
+  transition: all 0.2s ease-in-out;
+}
+
+.submenuItem a:hover {
+  color: var(--primary-color-dark);
+  background-color: #E6F4E9;
+}
+
+.submenuItem a.active {
+  color: var(--primary-color-dark);
+  font-weight: bold;
+  background-color: #E6F4E9;
 }
 
 .submenuItem:hover {

@@ -8,6 +8,7 @@ export function AppRoutes() {
       <Route path="/" element={<LoginPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      {/* <Route path="/supports" element={<Dashboard />} /> Fazer a parte das outras rotas depois */}
     </Routes>
   );
 }
