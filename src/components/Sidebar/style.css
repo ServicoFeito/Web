@@ -1,3 +1,7 @@
+:root {
+  --primary-color-dark: #2E7D32;
+  --primary-color-light: #4CAF50;
+}
 .sidebar {
   width: 230px;
   background-color: #ffffff;
@@ -20,7 +24,7 @@
   font-weight: bold;
   font-size: 1.5rem;
   text-align: center;
-  background-color: #34a853;
+  background: linear-gradient(135deg, var(--primary-color-dark), var(--primary-color-light));
   color: white;
   flex-shrink: 0;
   white-space: nowrap;

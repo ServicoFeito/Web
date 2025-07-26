@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-import { FaBars, FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
-
+import { FaBars, FaUserCircle, FaSignOutAlt, FaUserEdit, FaCog } from 'react-icons/fa';
 export default function Header({ onToggleSidebar }) {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
@@ -10,30 +9,46 @@ export default function Header({ onToggleSidebar }) {
   };
 
   return (
-    <header className="header">
-      <div className="header-left">
-        <button onClick={onToggleSidebar} className="header-button">
-          <FaBars />
-        </button>
-      </div>
-      <div className="header-right">
-        <div className="user-menu-container">
-          <button onClick={toggleUserMenu} className="header-button">
-            <FaUserCircle />
-          </button>
+<header className="header">
+  <div className="header-left">
+    <button onClick={onToggleSidebar} className="header-button">
+      <FaBars />
+    </button>
+  </div>
+  <div className="header-right">
+    <div className="user-menu-container">
+      <button onClick={toggleUserMenu} className="header-button">
+        <FaUserCircle />
+      </button>
 
-          {isUserMenuOpen && (
-            <div className="user-menu">
-              <ul>
-                <li className="user-menu-item">
-                  <FaSignOutAlt />
-                  <a href="/Login">Sair</a>
-                </li>
-              </ul>
-            </div>
-          )}
+      {isUserMenuOpen && (
+        <div className="user-menu">
+          <ul>
+            <li>
+              <a href="/profile" className="user-menu-item">
+                <FaUserEdit />
+                <span>Editar perfil</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="/settings" className="user-menu-item">
+                <FaCog />
+                <span>Configurações</span>
+              </a>
+            </li>
+
+            <li className="user-menu-separator">
+              <a href="/Login" className="user-menu-item">
+                <FaSignOutAlt />
+                <span>Sair</span>
+              </a>
+            </li>
+          </ul>
         </div>
-      </div>
-    </header>
+      )}
+    </div>
+  </div>
+</header>
   );
 }
