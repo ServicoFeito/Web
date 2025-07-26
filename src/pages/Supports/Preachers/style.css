@@ -1,0 +1,190 @@
+.page-container {
+  padding: 30px;
+  background-color: #f8f9fa; 
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 0;
+  color: #333;
+}
+
+.table-container-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.items-per-page-selector, .search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.items-per-page-selector select, .search-bar input {
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.search-bar input {
+  width: 250px;
+}
+
+.table-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.custom-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #f1f1f1;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.custom-table th {
+  color: #6c757d;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.custom-table td {
+  color: #333;
+}
+
+.status-pill {
+  padding: 5px 12px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.pill-green {
+  background-color: #E6F4EA;
+  color: #34A853;
+}
+
+.pill-red {
+  background-color: #FBE9E9;
+  color: #EA4335;
+}
+
+.pill-grey {
+  background-color: #f1f3f4;
+  color: #5f6368;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.action-button:hover {
+  opacity: 0.85;
+  transform: scale(1.1);
+}
+
+.btn-delete { background-color: #EA4335; } 
+.btn-view   { background-color: #4285F4; } 
+.btn-reply  { background-color: #4285F4; } 
+.btn-call   { background-color: #34A853; } 
+.btn-message{ background-color: #FBBC05; } 
+
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination button.active-page {
+  background-color: #167231;
+  color: white;
+  border-color: #167231;
+}
+
+@media (max-width: 768px) {
+  .table-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  .search-bar input {
+    width: 100%;
+  }
+  .table-footer {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

@@ -14,10 +14,11 @@ import { Login } from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
 
+import Preachers from './pages/Supports/Preachers'; 
+
 import './layouts-global.css';
 
-// O Layout é definido aqui, uma única vez.
-export default function AppLayout() {
+export function AppLayout() {
   const [isSidebarClosed, setIsSidebarClosed] = useState(false);
 
   const toggleSidebar = () => {
@@ -37,8 +38,12 @@ export default function AppLayout() {
   );
 }
 
-// O render da aplicação acontece aqui.
-createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Elemento root não encontrado no DOM');
+
+const root = createRoot(rootElement);
+
+root.render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
@@ -47,7 +52,10 @@ createRoot(document.getElementById('root')).render(
         
         <Route element={<AppLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/usuarios" element={<Users />} />
+          <Route path="/users" element={<Users />} />
+          
+          <Route path="/supports/preachers" element={<Preachers />} /> 
+
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './style.css';
 import {
@@ -20,19 +20,24 @@ const menuData = [
   {
     icon: <FaUsers />,
     text: 'Usuários',
-    path: '/usuarios',
+    path: '/users',
   },
   {
     icon: <FaHeadset />,
     text: 'Suportes',
+    subItems: [
+      { icon: <FaArrowRight />, text: 'Geral', path: '/supports/all' },
+      { icon: <FaArrowRight />, text: 'Prestadores', path: '/supports/preachers' },
+      { icon: <FaArrowRight />, text: 'Clientes', path: '/supports/clients' },
+    ],
   },
   {
     icon: <FaDollarSign />,
     text: 'Financeiro',
     subItems: [
-      { icon: <FaArrowRight />, text: 'Geral' },
-      { icon: <FaArrowRight />, text: 'Prestadores' },
-      { icon: <FaArrowRight />, text: 'Clientes' },
+      { icon: <FaArrowRight />, text: 'Geral', path: '/financial/all' },
+      { icon: <FaArrowRight />, text: 'Prestadores', path: '/financial/preachers' },
+      { icon: <FaArrowRight />, text: 'Clientes', path: '/financial/clients' },
     ],
   },
 ];
@@ -46,9 +51,11 @@ function Logo() {
 }
 
 function MenuItem({ item, isOpen, onClick }) {
-  const hasSubItems = item.subItems && item.subItems.length > 0;
   const location = useLocation();
+  const hasSubItems = !!item.subItems;
+
   const isActive = location.pathname === item.path;
+  const isSubMenuActive = hasSubItems && item.subItems.some(sub => sub.path === location.pathname);
 
   const content = (
     <div className="menuItem-content">
@@ -61,22 +68,31 @@ function MenuItem({ item, isOpen, onClick }) {
     return (
       <>
         <li
-          className={`menuItem ${isOpen ? 'active' : ''}`}
+          className={`menuItem ${isOpen || isSubMenuActive ? 'active' : ''}`}
           onClick={onClick}
         >
           {content}
           <span className="chevron-icon">
-            {isOpen ? <FaChevronDown /> : <FaChevronRight />}
+            {isOpen || isSubMenuActive ? <FaChevronDown /> : <FaChevronRight />}
           </span>
         </li>
         {isOpen && (
           <ul className="submenuList">
-            {item.subItems.map((subItem, index) => (
-              <li key={index} className="submenuItem">
-                {subItem.icon}
-                <span>{subItem.text}</span>
-              </li>
-            ))}
+            {item.subItems.map((subItem, index) => {
+              const isSubItemActive = location.pathname === subItem.path;
+              return (
+                <li key={index} className="submenuItem">
+                  <Link 
+                    to={subItem.path || '#'} 
+                    className={isSubItemActive ? 'active' : ''}
+                    onClick={(e) => e.stopPropagation()} 
+                  >
+                    {subItem.icon}
+                    <span>{subItem.text}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         )}
       </>
@@ -93,7 +109,18 @@ function MenuItem({ item, isOpen, onClick }) {
 }
 
 export default function Sidebar({ isClosed }) {
+  const location = useLocation();
   const [openIndex, setOpenIndex] = useState(null);
+
+  useEffect(() => {
+    const activeMenuIndex = menuData.findIndex(item =>
+      item.subItems?.some(subItem => subItem.path === location.pathname)
+    );
+    
+    if (activeMenuIndex !== -1) {
+      setOpenIndex(activeMenuIndex);
+    }
+  }, [location.pathname]);
 
   const handleItemClick = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -110,7 +137,7 @@ export default function Sidebar({ isClosed }) {
               key={index}
               item={item}
               isOpen={openIndex === index}
-              onClick={() => handleItemClick(index)}
+              onClick={() => item.subItems && handleItemClick(index)}
             />
           ))}
         </ul>

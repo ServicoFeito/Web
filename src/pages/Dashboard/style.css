@@ -30,7 +30,6 @@
   gap: 20px;
 }
 
-/* StatCard Styles */
 .statCard {
   background-color: white;
   border-radius: 8px;
@@ -71,7 +70,6 @@
   width: 100%;
 }
 
-/* InfoCard Styles */
 .infoCard {
   background-color: white;
   border-radius: 8px;
@@ -112,7 +110,6 @@
   width: 99% !important;
 }
 
-/* BarChart Styles */
 .chartContainer {
   background-color: #ffffff;
   padding: 20px 20px 30px 20px;
