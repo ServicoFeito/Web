@@ -95,7 +95,6 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                     </div>
                 )}
 
-
                 <div className="sidebar__logout">
                     <i className="bi bi-box-arrow-left"></i>
                     <a href="#">Sair</a>
