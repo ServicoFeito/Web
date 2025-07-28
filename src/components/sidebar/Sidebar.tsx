@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Sidebar.css';
+import {Link} from "react-router-dom";
 import logo from '../../assets/logo.svg';
 
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
@@ -34,7 +35,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             <div className="sidebar__menu">
                 <div className="sidebar__link active_menu_link">
                     <i className="bi bi-dash-square-fill"></i>
-                    <a href="#">DASHBOARD</a>
+                    <Link to="/">DASHBOARD</Link>
                 </div>
 
                 {/* 
@@ -53,7 +54,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                     <div className="sidebar__submenu">
                         <div className="sidebar__link">
                             <i className="bi bi-arrow-right"></i>
-                            <a href="#">Clientes</a>
+                            <Link to="/users/customers">Clientes</Link>
                         </div>
                         <div className="sidebar__link">
                             <i className="bi bi-arrow-right"></i>
