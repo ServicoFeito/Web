@@ -21,7 +21,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             <div className="sidebar__title">
                 <div className="sidebar__img">
                     <img src={logo} alt="logo" />
-                    <h1>Serviço Feito</h1>
+                    <h1>SERVIÇO FEITO</h1>
                 </div>
                 <i
                     onClick={() => closeSidebar()}
@@ -34,7 +34,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             <div className="sidebar__menu">
                 <div className="sidebar__link active_menu_link">
                     <i className="bi bi-dash-square-fill"></i>
-                    <a href="#">Home</a>
+                    <a href="#">DASHBOARD</a>
                 </div>
 
                 {/* 
@@ -53,15 +53,15 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                     <div className="sidebar__submenu">
                         <div className="sidebar__link">
                             <i className="bi bi-arrow-right"></i>
-                            <a href="#">Administrativo</a>
+                            <a href="#">Clientes</a>
                         </div>
                         <div className="sidebar__link">
                             <i className="bi bi-arrow-right"></i>
-                            <a href="#">Cadastrar</a>
+                            <a href="#">Prestadores</a>
                         </div>
                         <div className="sidebar__link">
                             <i className="bi bi-arrow-right"></i>
-                            <a href="#">Listar</a>
+                            <a href="#">Admin</a>
                         </div>
                     </div>
                 )}
@@ -73,7 +73,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                 <div className="sidebar__menu__item" onClick={() => toggleMenu('supports')}>
                     <div className="sidebar__menu__item__title">
                         <i className="bi bi-bell-fill"></i>
-                        <span>supports</span>
+                        <span>SUPPORTS</span>
                     </div>
                     <i className={OpenMenus['supports'] ? 'bi bi-chevron-up' : 'bi bi-chevron-down'}></i>
                 </div>
@@ -82,18 +82,106 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                     <div className="sidebar__submenu">
                          <div className="sidebar__link">
                             <i className="bi bi-arrow-right"></i>
-                            <a href="#">Administrativo</a>
+                            <a href="#">Clientes</a>
                         </div>
                         <div className="sidebar__link">
                             <i className="bi bi-arrow-right"></i>
-                            <a href="#">Cadastrar</a>
+                            <a href="#">Prestadores</a>
                         </div>
                         <div className="sidebar__link">
                             <i className="bi bi-arrow-right"></i>
-                            <a href="#">Listar</a>
+                            <a href="#">Geral</a>
                         </div>
                     </div>
                 )}
+
+                {/* 
+                    SESSÃO MENU - DESTAQUES
+                */}
+
+                <div className="sidebar__menu__item" onClick={() => toggleMenu('highlight')}>
+                    <div className="sidebar__menu__item__title">
+                        <i className="bi bi-star-fill"></i>
+                        <span>DESTAQUES</span>
+                    </div>
+                    <i className={OpenMenus['highlight'] ? 'bi bi-chevron-up' : 'bi bi-chevron-down'}></i>
+                </div>
+                
+                {OpenMenus['highlight'] && (
+                    <div className="sidebar__submenu">
+                        <div className="sidebar__link">
+                            <i className="bi bi-arrow-right"></i>
+                            <a href="#">Clientes</a>
+                        </div>
+                        <div className="sidebar__link">
+                            <i className="bi bi-arrow-right"></i>
+                            <a href="#">Prestadores</a>
+                        </div>
+                        <div className="sidebar__link">
+                            <i className="bi bi-arrow-right"></i>
+                            <a href="#">Geral</a>
+                        </div>
+                    </div>
+                )}
+
+                {/* 
+                    SESSÃO MENU - FINANCEIRO
+                */}
+
+                <div className="sidebar__menu__item" onClick={() => toggleMenu('financial')}>
+                    <div className="sidebar__menu__item__title">
+                        <i className="bi bi-currency-dollar"></i>
+                        <span>FINANCEIRO</span>
+                    </div>
+                    <i className={OpenMenus['financial'] ? 'bi bi-chevron-up' : 'bi bi-chevron-down'}></i>
+                </div>
+                
+                {OpenMenus['financial'] && (
+                    <div className="sidebar__submenu">
+                        <div className="sidebar__link">
+                            <i className="bi bi-arrow-right"></i>
+                            <a href="#">Clientes</a>
+                        </div>
+                        <div className="sidebar__link">
+                            <i className="bi bi-arrow-right"></i>
+                            <a href="#">Prestadores</a>
+                        </div>
+                        <div className="sidebar__link">
+                            <i className="bi bi-arrow-right"></i>
+                            <a href="#">Geral</a>
+                        </div>
+                    </div>
+                )}
+
+                {/* 
+                    SESSÃO MENU - GEOGGRAFIA
+                */}
+
+                <div className="sidebar__menu__item" onClick={() => toggleMenu('geography')}>
+                    <div className="sidebar__menu__item__title">
+                        <i className="bi bi-globe-americas"></i>
+                        <span>GEOGRAFIA</span>
+                    </div>
+                    <i className={OpenMenus['geography'] ? 'bi bi-chevron-up' : 'bi bi-chevron-down'}></i>
+                </div>
+                
+                {OpenMenus['geography'] && (
+                    <div className="sidebar__submenu">
+                        <div className="sidebar__link">
+                            <i className="bi bi-arrow-right"></i>
+                            <a href="#">Clientes</a>
+                        </div>
+                        <div className="sidebar__link">
+                            <i className="bi bi-arrow-right"></i>
+                            <a href="#">Prestadores</a>
+                        </div>
+                        <div className="sidebar__link">
+                            <i className="bi bi-arrow-right"></i>
+                            <a href="#">Geral</a>
+                        </div>
+                    </div>
+                )}
+
 
                 <div className="sidebar__logout">
                     <i className="bi bi-box-arrow-left"></i>

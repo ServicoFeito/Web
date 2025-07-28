@@ -23,7 +23,6 @@
 .sidebar__title > div > img {
     width: 55px;
     object-fit: contain;
-    border-radius: 50%;
 }
 
 .sidebar__title > div > h1 {
@@ -46,9 +45,6 @@
     font-weight: 700;
 }
 
-
-/* */
-/* Estilo para o item de menu que abre o submenu */
 .sidebar__menu__item {
     display: flex;
     justify-content: space-between;
@@ -81,13 +77,11 @@
     color: #a5aaad;
 }
 
-/* Container para os links do submenu */
 .sidebar__submenu {
-    padding-left: 20px; /* Adiciona um recuo para os subitens */
+    padding-left: 20px; 
     margin-top: 5px;
 }
 
-/*  */
 .sidebar__link {
     color: #f3f4f6;
     padding: 10px;
