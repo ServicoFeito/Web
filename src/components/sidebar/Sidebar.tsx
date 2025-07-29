@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import './Sidebar.css';
-import {Link} from "react-router-dom";
+import {Link, useLocation } from "react-router-dom";
 import logo from '../../assets/logo.svg';
 
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
     // 1. Um único estado para controlar todos os menus.
     const [OpenMenus, setOpenMenus] = useState({});
+
+    // 2. Obtenha o pathname atual
+    const { pathname } = useLocation();
 
     // 2. Uma única função para alternar qualquer menu pelo seu nome (ID).
     const toggleMenu = (nomeDoMenu) => {
@@ -33,10 +36,12 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             </div>
 
             <div className="sidebar__menu">
-                <div className="sidebar__link active_menu_link">
-                    <i className="bi bi-dash-square-fill"></i>
-                    <Link to="/">DASHBOARD</Link>
-                </div>
+               <Link to="/" className="decoration_none">
+                    <div className={`sidebar__link ${pathname === '/' ? 'active_menu_link' : ''}`}>
+                        <i className="bi bi-dash-square-fill"></i>
+                        <span>DASHBOARD</span>
+                    </div>
+                </Link>
 
                 {/* 
                     SESSÃO MENU - USUÁRIOS
