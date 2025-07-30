@@ -1,29 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; 
 import './Sidebar.css';
 import {Link, useLocation } from "react-router-dom";
 import logo from '../../assets/logo.svg';
 
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
-    // 1. Um único estado para controlar todos os menus.
     const [OpenMenus, setOpenMenus] = useState({});
-
-    // 2. Obtenha o pathname atual
     const { pathname } = useLocation();
 
-    // 2. Uma única função para alternar qualquer menu pelo seu nome (ID).
+    // NOVO: Este 'effect' sincroniza o menu com a URL atual
+    useEffect(() => {
+        if (pathname.startsWith('/users')) {
+            // Se a URL for de usuários, garante que o menu esteja aberto
+            setOpenMenus(prevState => ({ ...prevState, users: true }));
+        }
+        if (pathname.startsWith('/supports')) {
+            // Exemplo para outros menus...
+            setOpenMenus(prevState => ({ ...prevState, supports: true }));
+        }
+        // Adicione outras condições 'if' para os demais menus que possuem submenus
+    }, [pathname]); // O array [pathname] faz com que este código rode sempre que a URL mudar
+
     const toggleMenu = (nomeDoMenu) => {
         setOpenMenus(prevState => ({
-            // Copia o estado anterior dos outros menus
             ...prevState,
-            // Inverte o estado do menu clicado (se não existir, será 'true')
             [nomeDoMenu]: !prevState[nomeDoMenu] 
         }));
     };
 
     return (
         <div className={sidebarOpen ? "sidebar-responsive" : ""} id="sidebar">
-            <div className="sidebar__title">
-                <div className="sidebar__img">
+            <div className="sidebar_title">
+                <div className="sidebar_img">
                     <img src={logo} alt="logo" />
                     <h1>SERVIÇO FEITO</h1>
                 </div>
@@ -35,40 +42,53 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                 ></i>
             </div>
 
-            <div className="sidebar__menu">
-               <Link to="/home" className="decoration_none">
-                    <div className={`sidebar__link ${pathname === '/' ? 'active_menu_link' : ''}`}>
+            <div className="sidebar_menu">
+                <Link to="/home" className="decoration_none">
+                    <div className={`sidebar_link ${pathname === '/home' ? 'active_menu_link' : ''}`}>
                         <i className="bi bi-dash-square-fill"></i>
                         <span>DASHBOARD</span>
                     </div>
                 </Link>
 
                 {/* 
-                    SESSÃO MENU - USUÁRIOS
+                    SESSÃO MENU - USUÁRIOS 
                 */}
 
-                <div className="sidebar__menu__item" onClick={() => toggleMenu('users')}>
-                    <div className="sidebar__menu__item__title">
-                        <i className="bi bi-people-fill"></i>
-                        <span>USUÁRIOS</span>
+                <Link to="/users" className="decoration_none">
+                    <div 
+                        className={`sidebar_link sidebar_menu_item ${pathname.startsWith('/users') ? 'active_menu_link' : ''}`} 
+                        onClick={() => toggleMenu('users')}
+                    >
+                        <div className="sidebar_menu_item_title">
+                            <i className="bi bi-people-fill"></i>
+                            <span>USUÁRIOS</span>
+                        </div>
+                        <i className={OpenMenus['users'] ? 'bi bi-chevron-up' : 'bi bi-chevron-down'}></i>
                     </div>
-                    <i className={OpenMenus['users'] ? 'bi bi-chevron-up' : 'bi bi-chevron-down'}></i>
-                </div>
+                </Link>
 
                 {OpenMenus['users'] && (
-                    <div className="sidebar__submenu">
-                        <div className="sidebar__link">
-                            <i className="bi bi-arrow-right"></i>
-                            <Link to="/users/customers">Clientes</Link>
-                        </div>
-                        <div className="sidebar__link">
-                            <i className="bi bi-arrow-right"></i>
-                            <a href="#">Prestadores</a>
-                        </div>
-                        <div className="sidebar__link">
-                            <i className="bi bi-arrow-right"></i>
-                            <a href="#">Admin</a>
-                        </div>
+                    <div className="sidebar_submenu">
+                        <Link to="/users/customers" className="decoration_none">
+                            <div className="sidebar_link">
+                                <i className="bi bi-arrow-right"></i>
+                               <span className={`${pathname === '/users/customers' ? 'sidebar_link_focus' : ''}`}>Clientes</span>
+                            </div>
+                        </Link>
+
+                        <Link to="/users/provider" className="decoration_none">
+                            <div className="sidebar_link">
+                                <i className="bi bi-arrow-right"></i>
+                               <span className={`${pathname === '/users/provider' ? 'sidebar_link_focus' : ''}`}>Prestadores</span>
+                            </div>
+                        </Link>
+
+                        <Link to="/users/admin" className="decoration_none">
+                            <div className="sidebar_link">
+                                <i className="bi bi-arrow-right"></i>
+                               <span className={`${pathname === '/users/admin' ? 'sidebar_link_focus' : ''}`}>Admin</span>
+                            </div>
+                        </Link>
                     </div>
                 )}
 
@@ -76,8 +96,8 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                     SESSÃO MENU - SUPPORTS
                 */}
 
-                <div className="sidebar__menu__item" onClick={() => toggleMenu('supports')}>
-                    <div className="sidebar__menu__item__title">
+                <div className="sidebar_menu_item" onClick={() => toggleMenu('supports')}>
+                    <div className="sidebar_menu_item_title">
                         <i className="bi bi-bell-fill"></i>
                         <span>SUPPORTS</span>
                     </div>
@@ -85,16 +105,16 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                 </div>
                 
                 {OpenMenus['supports'] && (
-                    <div className="sidebar__submenu">
-                         <div className="sidebar__link">
+                    <div className="sidebar_submenu">
+                         <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Clientes</a>
                         </div>
-                        <div className="sidebar__link">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Prestadores</a>
                         </div>
-                        <div className="sidebar__link">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Geral</a>
                         </div>
@@ -105,8 +125,8 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                     SESSÃO MENU - DESTAQUES
                 */}
 
-                <div className="sidebar__menu__item" onClick={() => toggleMenu('highlight')}>
-                    <div className="sidebar__menu__item__title">
+                <div className="sidebar_menu_item" onClick={() => toggleMenu('highlight')}>
+                    <div className="sidebar_menu_item_title">
                         <i className="bi bi-star-fill"></i>
                         <span>DESTAQUES</span>
                     </div>
@@ -114,16 +134,16 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                 </div>
                 
                 {OpenMenus['highlight'] && (
-                    <div className="sidebar__submenu">
-                        <div className="sidebar__link">
+                    <div className="sidebar_submenu">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Clientes</a>
                         </div>
-                        <div className="sidebar__link">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Prestadores</a>
                         </div>
-                        <div className="sidebar__link">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Geral</a>
                         </div>
@@ -134,8 +154,8 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                     SESSÃO MENU - FINANCEIRO
                 */}
 
-                <div className="sidebar__menu__item" onClick={() => toggleMenu('financial')}>
-                    <div className="sidebar__menu__item__title">
+                <div className="sidebar_menu_item" onClick={() => toggleMenu('financial')}>
+                    <div className="sidebar_menu_item_title">
                         <i className="bi bi-currency-dollar"></i>
                         <span>FINANCEIRO</span>
                     </div>
@@ -143,16 +163,16 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                 </div>
                 
                 {OpenMenus['financial'] && (
-                    <div className="sidebar__submenu">
-                        <div className="sidebar__link">
+                    <div className="sidebar_submenu">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Clientes</a>
                         </div>
-                        <div className="sidebar__link">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Prestadores</a>
                         </div>
-                        <div className="sidebar__link">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Geral</a>
                         </div>
@@ -163,8 +183,8 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                     SESSÃO MENU - GEOGGRAFIA
                 */}
 
-                <div className="sidebar__menu__item" onClick={() => toggleMenu('geography')}>
-                    <div className="sidebar__menu__item__title">
+                <div className="sidebar_menu_item" onClick={() => toggleMenu('geography')}>
+                    <div className="sidebar_menu_item_title">
                         <i className="bi bi-globe-americas"></i>
                         <span>GEOGRAFIA</span>
                     </div>
@@ -172,16 +192,16 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                 </div>
                 
                 {OpenMenus['geography'] && (
-                    <div className="sidebar__submenu">
-                        <div className="sidebar__link">
+                    <div className="sidebar_submenu">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Clientes</a>
                         </div>
-                        <div className="sidebar__link">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Prestadores</a>
                         </div>
-                        <div className="sidebar__link">
+                        <div className="sidebar_link">
                             <i className="bi bi-arrow-right"></i>
                             <a href="#">Geral</a>
                         </div>
@@ -189,7 +209,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                 )}
 
 
-                <div className="sidebar__logout">
+                <div className="sidebar_logout">
                     <i className="bi bi-box-arrow-left"></i>
                     <a href="#">Sair</a>
                 </div>

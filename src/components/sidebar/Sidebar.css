@@ -7,7 +7,7 @@
     transition: all 0.5s;
 }
 
-.sidebar__title {
+.sidebar_title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,28 +15,28 @@
     margin-bottom: 30px;
 }
 
-.sidebar__img {
+.sidebar_img {
     display: flex;
     align-items: center;
 }
 
-.sidebar__title > div > img {
+.sidebar_title > div > img {
     width: 55px;
     object-fit: contain;
 }
 
-.sidebar__title > div > h1 {
+.sidebar_title > div > h1 {
     font-size: 18px;
     display: inline;
     margin-left: 15px;
 }
 
-.sidebar__title > i {
+.sidebar_title > i {
     font-size: 18px;
     display: none;
 }
 
-.sidebar__menu > h2 {
+.sidebar_menu > h2 {
     color: #3ea175;
     font-size: 16px;
     margin-top: 15px;
@@ -45,7 +45,7 @@
     font-weight: 700;
 }
 
-.sidebar__menu__item {
+.sidebar_menu_item {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,27 +57,27 @@
     transition: background 0.2s ease-in-out;
 }
 
-.sidebar__menu__item:hover {
+.sidebar_menu_item:hover {
     background: rgba(62, 161, 117, 0.2);
 }
 
-.sidebar__menu__item__title {
+.sidebar_menu_item_title {
     display: flex;
     align-items: center;
     font-weight: 700;
 }
 
-.sidebar__menu__item__title i {
+.sidebar_menu_item_title i {
     margin-right: 10px;
     font-size: 18px;
 }
 
-.sidebar__menu__item > i {
+.sidebar_menu_item > i {
     font-size: 16px;
     color: #a5aaad;
 }
 
-.sidebar__submenu {
+.sidebar_submenu {
     padding-left: 20px; 
     margin-top: 5px;
 }
@@ -86,7 +86,7 @@
     text-decoration: none !important;
 }
 
-.sidebar__link {
+.sidebar_link {
     color: #f3f4f6;
     padding: 10px;
     border-radius: 3px;
@@ -102,37 +102,37 @@
     color: #3ea175 !important;
 }
 
-.sidebar__link > a {
+.sidebar_link > a {
     text-decoration: none;
     color: #a5aaad;
     font-weight: 700;
 }
 
-.sidebar__link a:focus {
+.sidebar_link_focus {
     padding: 7px;
-    background: rgba(62, 161, 117, 0.3);
+    background: #396045;
     border-radius: 3px;
 }
 
-.sidebar__link > i {
+.sidebar_link > i {
     margin-right: 10px;
     font-size: 18px;
 }
 
-.sidebar__logout {
+.sidebar_logout {
     margin-top: 20px;
     padding: 10px;
     color: #e65061;
 }
 
-.sidebar__logout > a {
+.sidebar_logout > a {
     text-decoration: none;
     color: #e65061;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-.sidebar__logout > i {
+.sidebar_logout > i {
     margin-right: 10px;
     font-size: 18px;
 }
@@ -150,7 +150,7 @@
         height: 100%;
     }
 
-    .sidebar__title > i {
+    .sidebar_title > i {
         display: inline;
     }
 }
