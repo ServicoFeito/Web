@@ -4,27 +4,34 @@ import './index.css'
 import App from './App'
 
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import Home from "./routes/home/home";
+import Login from "./routes/login/Login";
+import Home from "./routes/home/Home";
 import Customers from "./routes/users/Customers";
 import Error404 from "./routes/404/Error404";
 
 const router = createBrowserRouter([
   {
-    //Bloco Principal
-    path:"/",
+    // Rota de Login, sozinha na raiz
+    path: "/",
+    element: <Login />,
+    errorElement: <Error404 />,
+  },
+  {
+    // Este objeto aplica o layout <App /> a todos os filhos,
+    // mas NÃO adiciona um prefixo ao URL.
     element: <App />,
     errorElement: <Error404 />,
     children: [
       {
-        path:"/",
-        element:<Home  />,
+        path: "/home",
+        element: <Home />,
       },
       {
-        path:"/users/customers",
-        element:<Customers  />,
+        path: "/users/customers",
+        element: <Customers />,
       },
     ]
-  },
+  }
 ]);
 
 

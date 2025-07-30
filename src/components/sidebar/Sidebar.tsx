@@ -36,7 +36,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             </div>
 
             <div className="sidebar__menu">
-               <Link to="/" className="decoration_none">
+               <Link to="/home" className="decoration_none">
                     <div className={`sidebar__link ${pathname === '/' ? 'active_menu_link' : ''}`}>
                         <i className="bi bi-dash-square-fill"></i>
                         <span>DASHBOARD</span>
