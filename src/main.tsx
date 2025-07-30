@@ -8,7 +8,7 @@ import Login from "./routes/login/Login";
 import Home from "./routes/home/Home";
 //Import Users
 import Users from "./routes/users/Users";
-import Customers from "./routes/users/Customers/Customers";
+import Customers from "./routes/users/customers/Customers";
 import Provider from "./routes/users/Provider";
 import Admin from "./routes/users/Admin";
 //Import 404

@@ -1,7 +1,7 @@
 /* Define variáveis de cor para fácil manutenção */
 :root {
-  --primary-color: #4DAF50; 
-  --primary-color-hover: #459c48; 
+  --primary-color: #4DAF50;
+  --primary-color-hover: #459c48;
   --background-color: #f0f2f5;
   --container-bg: #ffffff;
   --text-color-dark: #333;
@@ -70,26 +70,31 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* Efeito hover para o botão de voltar */
 .back-button:hover {
   background-color: var(--primary-color-hover);
   transform: translateY(-2px);
 }
 
+/* Efeito de clique no botão de voltar */
 .back-button:active {
   transform: translateY(0);
 }
 
 
-/* ---- Responsividade ---- */
+/* Bloco de estilos para responsividade em telas menores */
 @media (max-width: 600px) {
+  /* Ajusta o padding do container em telas menores */
   .not-found-container {
     padding: 2rem 1.5rem;
   }
 
+  /* Reduz o tamanho da fonte do código de erro */
   .error-code {
     font-size: 6rem;
   }
 
+  /* Reduz o tamanho da fonte da mensagem de erro */
   .error-message {
     font-size: 1.25rem;
   }

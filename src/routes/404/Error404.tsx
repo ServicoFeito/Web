@@ -3,11 +3,13 @@ import './Error404.css';
 
 const Error404 = () => {
 
-   const handleGoBack = () => {
+  // Função para navegar para a página anterior no histórico do navegador.
+  const handleGoBack = () => {
     window.history.back();
   };
-  
+ 
   return (
+    // Contêiner principal que ocupa toda a tela e centraliza o conteúdo.
     <div className="not-found-page">
       <div className="not-found-container">
         <h1 className="error-code">404</h1>
