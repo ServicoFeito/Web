@@ -1,3 +1,4 @@
+/* Estilo principal da barra de navegação. */
 .navbar {
     background: #4daf50;
     grid-area: nav;
@@ -9,15 +10,18 @@
     border-bottom: 1px solid lightgray;
 }
 
+/* Estilo do ícone de menu (hambúrguer), escondido por padrão. */
 .nav_icon {
     display: none;
 }
 
+/* Estilo do ícone dentro do contêiner do menu. */
 .nav_icon > i {
     font-size: 26px;
     color: #a5aaad;
 }
 
+/* Estilo dos links na seção esquerda da navbar. */
 .navbar_left > a {
     margin-right: 30px;
     text-decoration: none;
@@ -26,29 +30,27 @@
     font-weight: 700;
 }
 
+/* Estilo para o link ativo na seção esquerda. */
 .navbar_left .active_link {
     color: #265acc;
     border-bottom: 3px solid #265acc;
     padding-bottom: 12px;
 }
 
+/* Alinhamento dos itens na seção direita da navbar. */
 .navbar_right {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.navbar_right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* Estilo para os links na seção direita. */
 .navbar_right > a {
     margin-left: 20px;
     text-decoration: none;
 }
 
+/* Estilo para ícones dentro de links na seção direita. */
 .navbar_right > a > i {
     color: #a5aaad;
     font-size: 16px;
@@ -58,13 +60,17 @@
     padding: 7px;
 }
 
+/* Responsividade para telas médias (exibe o ícone de menu). */
 @media only screen and (max-width: 978px) {
+    /* Exibe o ícone do menu em telas menores. */
     .nav_icon {
         display: inline;
     }
 }
 
+/* Responsividade para telas pequenas (esconde os links da esquerda). */
 @media only screen and (max-width: 480px) {
+    /* Esconde a seção de links da esquerda em telas muito pequenas. */
     .navbar_left {
         display: none;
     }
