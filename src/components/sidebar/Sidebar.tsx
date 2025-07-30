@@ -45,7 +45,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             <div className="sidebar_menu">
                 <Link to="/home" className="decoration_none">
                     <div className={`sidebar_link ${pathname === '/home' ? 'active_menu_link' : ''}`}>
-                        <i className="bi bi-dash-square-fill"></i>
+                        <i className="bi bi-speedometer2"></i>
                         <span>DASHBOARD</span>
                     </div>
                 </Link>
@@ -54,18 +54,18 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                     SESSÃO MENU - USUÁRIOS 
                 */}
 
-                <Link to="/users" className="decoration_none">
                     <div 
                         className={`sidebar_link sidebar_menu_item ${pathname.startsWith('/users') ? 'active_menu_link' : ''}`} 
                         onClick={() => toggleMenu('users')}
                     >
+                <Link to="/users" className="decoration_none">
                         <div className="sidebar_menu_item_title">
                             <i className="bi bi-people-fill"></i>
                             <span>USUÁRIOS</span>
                         </div>
+                </Link>
                         <i className={OpenMenus['users'] ? 'bi bi-chevron-up' : 'bi bi-chevron-down'}></i>
                     </div>
-                </Link>
 
                 {OpenMenus['users'] && (
                     <div className="sidebar_submenu">
