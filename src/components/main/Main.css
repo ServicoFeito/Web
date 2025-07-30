@@ -1,25 +1,29 @@
+/* Estilização do container principal da área de conteúdo */
 main {
     background: #f3f4f6;
     grid-area: main;
     overflow-y: auto;
 }
 
+/* Padding interno para o container principal */
 .main_container {
     padding: 20px 35px;
 }
 
+/* Estilização do container do título */
 .main_title {
     display: flex;
     align-items: center;
 }
 
+/* Estilização do texto do título H1 */
 .main_greeting > h1 {
     font-size: 24px;
     color: #2e4a66;
     margin-bottom: 5px;
 }
 
-
+/* Layout em grid para os cards de resumo */
 .main_cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -27,89 +31,102 @@ main {
     margin: 20px 0;
 }
 
+/* Estilo base para cada card individual */
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding: 25px;
-  border-radius: 5px;
-  background-color: #FFF;
-  box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #FFF;
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 35px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 25px;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #FFF;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 35px;
 }
 
+/* Adiciona a barra de cor específica para o card 1 */
 .main_cards_1::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 10px; 
-  background-color: #4DAF50; 
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #4DAF50;
 }
 
+/* Adiciona a barra de cor específica para o card 2 */
 .main_cards_2::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 10px; 
-  background-color: #4DAFAA; 
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #4DAFAA;
 }
 
+/* Adiciona a barra de cor específica para o card 3 */
 .main_cards_3::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 10px; 
-  background-color: #624DAF; 
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #624DAF;
 }
 
+/* Adiciona a barra de cor específica para o card 4 */
 .main_cards_4::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 10px; 
-  background-color: #AF7E4D; 
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #AF7E4D;
 }
 
-.main_card_1{
+/* Define a cor do texto do título para o card 1 */
+.main_card_1 {
     color: #4DAF50;
 }
 
-.main_card_2{
+/* Define a cor do texto do título para o card 2 */
+.main_card_2 {
     color: #4DAFAA;
 }
 
-.main_card_3{
+/* Define a cor do texto do título para o card 3 */
+.main_card_3 {
     color: #624DAF;
 }
 
-.main_card_4{
+/* Define a cor do texto do título para o card 4 */
+.main_card_4 {
     color: #AF7E4D;
 }
 
+/* Alinhamento do conteúdo interno dos cards */
 .card_inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+/* Estilo para o texto numérico (KPI) dentro do card */
 .card_inner > span {
     font-size: 25px;
 }
 
+/* Estilo para o ícone grande nos cards de resumo */
 .big_icon {
-  font-size: 25px !important; 
+    font-size: 25px !important;
 }
 
+/* Layout em grid para a seção de gráficos */
 .charts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -117,6 +134,7 @@ main {
     margin-top: 50px;
 }
 
+/* Estilo do container do gráfico da esquerda */
 .charts_left {
     padding: 25px;
     border-radius: 5px;
@@ -124,24 +142,28 @@ main {
     box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #FFF;
 }
 
+/* Alinhamento do título do gráfico da esquerda */
 .charts_left_title {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+/* Estilo do título H1 do gráfico da esquerda */
 .charts_left_title > div > h1 {
     font-size: 24px;
     color: #2e4a66;
     margin-bottom: 5px;
 }
 
+/* Estilo do subtítulo do gráfico da esquerda */
 .charts_left_title > div > p {
     font-size: 14px;
     font-weight: 700;
     color: #a5aaad;
 }
 
+/* Estilo do ícone no título do gráfico da esquerda */
 .charts_left_title > i {
     color: #FFF;
     font-size: 20px;
@@ -153,6 +175,7 @@ main {
     padding: 15px;
 }
 
+/* Estilo do container do gráfico da direita */
 .charts_right {
     padding: 25px;
     border-radius: 5px;
@@ -160,24 +183,28 @@ main {
     box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #FFF;
 }
 
+/* Alinhamento do título do gráfico da direita */
 .charts_right_title {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+/* Estilo do título H1 do gráfico da direita */
 .charts_right_title > div > h1 {
     font-size: 24px;
     color: #2e4a66;
     margin-bottom: 5px;
 }
 
+/* Estilo do subtítulo do gráfico da direita */
 .charts_right_title > div > p {
     font-size: 14px;
     font-weight: 700;
     color: #a5aaad;
 }
 
+/* Estilo do ícone no título do gráfico da direita */
 .charts_right_title > i {
     color: #FFF;
     font-size: 20px;
@@ -187,6 +214,7 @@ main {
     padding: 15px;
 }
 
+/* Layout em grid para os cards menores à direita */
 .charts_right_cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -194,6 +222,7 @@ main {
     margin-top: 30px;
 }
 
+/* Estilo específico para o card de "Lucro" 1 */
 .card1 {
     background: #d1ecf1;
     color: #35a4ba;
@@ -203,6 +232,7 @@ main {
     font-size: 14px;
 }
 
+/* Estilo específico para o card de "Lucro" 2 */
 .card2 {
     background: #d2f9ee;
     color: #38e1b0;
@@ -212,6 +242,7 @@ main {
     font-size: 14px;
 }
 
+/* Estilo específico para o card de "Lucro" 3 */
 .card3 {
     background: #d6d8d9;
     color: #3a3e41;
@@ -221,6 +252,7 @@ main {
     font-size: 14px;
 }
 
+/* Estilo específico para o card de "Lucro" 4 */
 .card4 {
     background: #fddcdf;
     color: #f65a6f;
@@ -230,24 +262,26 @@ main {
     font-size: 14px;
 }
 
+/* Bloco de estilos para responsividade em telas menores */
 @media only screen and (max-width: 855px) {
+    /* Ajusta os cards de resumo para uma única coluna */
     .main_cards {
         grid-template-columns: 1fr;
         gap: 10px;
         margin-bottom: 0;
     }
-
+    
+    /* Ajusta os gráficos para uma única coluna */
     .charts {
         grid-template-columns: 1fr;
         margin-top: 30px;
         justify-content: center;
     }
-
+    
+    /* Ajusta os cards menores da direita para uma única coluna */
     .charts_right_cards {
         grid-template-columns: 1fr;
         align-items: center;
         margin-top: 30px;
     }
-
-    
 }
