@@ -22,11 +22,11 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 16px;
 }
 
-/* NOVO: Seletor de itens por página */
+/* Seletor de itens por página */
 .items-per-page-selector {
     display: flex;
     align-items: center;
@@ -35,6 +35,7 @@ body {
     color: #555;
 }
 
+/* Estilização do select do seletor de itens por página */
 .items-per-page-selector select {
     border: 1px solid #dfe1e6;
     border-radius: 6px;
@@ -43,22 +44,25 @@ body {
     background-color: #fff;
 }
 
+/* Estilização do foco do select */
 .items-per-page-selector select:focus {
     outline: none;
     border-color: #ccff00;
 }
 
-/* Título "Clientes" separado */
+/* Wrapper do título "Clientes" */
 .title-wrapper {
     margin-bottom: 24px;
 }
 
+/* Estilização do título H1 */
 .title-wrapper h1 {
   font-size: 24px;
   font-weight: 600;
   margin: 0;
 }
 
+/* Estilização do campo de busca */
 .search-wrapper input {
   border: 1px solid #dfe1e6;
   border-radius: 20px;
@@ -68,6 +72,7 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
+/* Estilização do foco do campo de busca */
 .search-wrapper input:focus {
   outline: none;
   border-color: #007bff;
@@ -79,12 +84,14 @@ body {
   overflow-x: auto;
 }
 
+/* Estilização base da tabela */
 table {
   width: 100%;
   border-collapse: collapse;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
+/* Estilização das células do cabeçalho e do corpo da tabela */
 th, td {
   padding: 16px;
   text-align: left;
@@ -93,6 +100,7 @@ th, td {
   vertical-align: middle;
 }
 
+/* Estilização das células do cabeçalho da tabela (thead) */
 thead th {
   background-color: #fafafa;
   font-weight: 600;
@@ -101,11 +109,12 @@ thead th {
   font-size: 12px;
 }
 
+/* Efeito hover nas linhas do corpo da tabela */
 tbody tr:hover {
   background-color: #f9f9f9;
 }
 
-/* Pílulas de Status (ATIVO/INATIVO) */
+/* Estilização base para as pílulas de status */
 .status {
   padding: 6px 12px;
   border-radius: 16px;
@@ -114,22 +123,25 @@ tbody tr:hover {
   text-transform: uppercase;
 }
 
+/* Estilização para o status "ATIVO" */
 .status-active {
   background-color: #d4edda;
   color: #155724;
 }
 
+/* Estilização para o status "INATIVO" */
 .status-inactive {
   background-color: #f8d7da;
   color: #721c24;
 }
 
-/* Célula de Ações e Botões */
+/* Célula que contém os botões de ações */
 .actions-cell {
   display: flex;
   gap: 8px;
 }
 
+/* Estilização base dos botões de ação */
 .action-btn {
   border: none;
   border-radius: 8px;
@@ -143,17 +155,19 @@ tbody tr:hover {
   font-size: 16px;
 }
 
+/* Efeito hover para os botões de ação */
 .action-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.action-btn.edit     { background-color: #e0f2fe; color: #0ea5e9; }
-.action-btn.delete   { background-color: #fee2e2; color: #ef4444; }
-.action-btn.activate { background-color: #dcfce7; color: #22c55e; }
-.action-btn.view     { background-color: #ffedd5; color: #f97316; }
+/* Estilização específica para cada botão de ação (editar, deletar, ativar, visualizar) */
+.action-btn.edit      { background-color: #e0f2fe; color: #0ea5e9; }
+.action-btn.delete    { background-color: #fee2e2; color: #ef4444; }
+.action-btn.activate  { background-color: #dcfce7; color: #22c55e; }
+.action-btn.view      { background-color: #ffedd5; color: #f97316; }
 
-/* Rodapé e Paginação */
+/* Rodapé da tabela */
 .table-footer {
   display: flex;
   justify-content: space-between;
@@ -165,16 +179,19 @@ tbody tr:hover {
   gap: 16px;
 }
 
+/* Informações de texto no rodapé */
 .footer-info {
   font-size: 14px;
   color: #666;
 }
 
+/* Controles de paginação */
 .pagination-controls {
   display: flex;
   gap: 8px;
 }
 
+/* Botões dentro dos controles de paginação */
 .pagination-controls button {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -185,16 +202,19 @@ tbody tr:hover {
   transition: all 0.2s;
 }
 
+/* Efeito hover para os botões de paginação (exceto desabilitados) */
 .pagination-controls button:hover:not(:disabled) {
   background-color: #f0f0f0;
   border-color: #ccc;
 }
 
+/* Estilização para botões de paginação desabilitados */
 .pagination-controls button:disabled {
   color: #aaa;
   cursor: not-allowed;
 }
 
+/* Estilização para o botão de página ativa */
 .pagination-controls button.active {
   background-color: #4daf50;
   color: white;
@@ -202,31 +222,37 @@ tbody tr:hover {
   font-weight: bold;
 }
 
-/* --- DESIGN RESPONSIVO --- */
+/* --- Início das regras de design responsivo para telas menores --- */
 @media (max-width: 768px) {
+  /* Reorganiza o cabeçalho em telas menores */
   .table-header {
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
     align-items: stretch;
   }
-  
+
+  /* Faz o campo de busca ocupar a largura total */
   .search-wrapper input {
       width: 100%;
   }
 
+  /* Centraliza o conteúdo do rodapé em telas menores */
   .table-footer {
     flex-direction: column;
     align-items: center;
   }
 
+  /* Centraliza os controles de paginação */
   .pagination-controls {
     width: 100%;
     justify-content: center;
   }
-  
+
+  /* Oculta o cabeçalho da tabela tradicional */
   thead {
     display: none;
   }
 
+  /* Transforma as linhas da tabela em blocos */
   tr {
     display: block;
     margin-bottom: 16px;
@@ -235,6 +261,7 @@ tbody tr:hover {
     padding: 8px;
   }
 
+  /* Transforma as células em um layout flexível com rótulos */
   td {
     display: flex;
     justify-content: space-between;
@@ -242,11 +269,13 @@ tbody tr:hover {
     border-bottom: none;
     padding: 12px 8px;
   }
-  
+
+  /* Adiciona uma borda inferior entre as células, exceto a última */
   td:not(:last-child) {
     border-bottom: 1px solid #f0f0f0;
   }
 
+  /* Adiciona um rótulo de dados (data-label) antes do conteúdo da célula */
   td::before {
     content: attr(data-label);
     font-weight: bold;
@@ -254,6 +283,7 @@ tbody tr:hover {
     color: #333;
   }
 
+  /* Alinha os botões de ação à direita na célula */
   .actions-cell {
     justify-content: flex-end;
   }

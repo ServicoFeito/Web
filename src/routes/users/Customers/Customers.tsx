@@ -26,14 +26,13 @@ interface Client {
   status: ClientStatus;
 }
 
-// --- O Componente ---
 const Customers: React.FC = () => {
+  // Estados do componente para gerenciar a lista de clientes, a página atual e os itens por página.
   const [clients] = useState<Client[]>(mockClients);
   const [currentPage, setCurrentPage] = useState(1);
-  // NOVO: Estado para controlar itens por página
-  const [itemsPerPage, setItemsPerPage] = useState(5); 
+  const [itemsPerPage, setItemsPerPage] = useState(5);
 
-  // Lógica de Paginação (agora dinâmica)
+  // Bloco de lógica para calcular a paginação da tabela.
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = clients.slice(indexOfFirstItem, indexOfLastItem);
@@ -42,44 +41,43 @@ const Customers: React.FC = () => {
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
-  
-  // NOVO: Função para alterar a quantidade de itens por página
+
   const handleItemsPerPageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setItemsPerPage(Number(event.target.value));
-    setCurrentPage(1); // Resetar para a primeira página ao mudar a quantidade
+    setCurrentPage(1);
   };
 
-  // Funções de placeholder para os botões de ação
   const handleEdit = (id: number) => alert(`Editar cliente ID: ${id}`);
   const handleDelete = (id: number) => alert(`Deletar cliente ID: ${id}`);
   const handleActivate = (id: number) => alert(`Ativar cliente ID: ${id}`);
   const handleView = (id: number) => alert(`Visualizar cliente ID: ${id}`);
 
-
   return (
     <main>
+      {/* Container principal da tabela de clientes. */}
       <div className="client-table-container">
+        {/* Cabeçalho com título, controles e campo de busca. */}
         <header className="table-header">
           <div className="table-controls">
-        <div className="title-wrapper">
-          <h1>Clientes</h1>
-        </div>
-              <div className="items-per-page-selector">
-                  <label htmlFor="items-per-page">Exibir</label>
-                  <select id="items-per-page" value={itemsPerPage} onChange={handleItemsPerPageChange}>
-                      <option value={5}>5</option>
-                      <option value={10}>10</option>
-                      <option value={15}>15</option>
-                  </select>
-                  <span>Resultados por página</span>
-              </div>
+            <div className="title-wrapper">
+              <h1>Clientes</h1>
+            </div>
+            <div className="items-per-page-selector">
+              <label htmlFor="items-per-page">Exibir</label>
+              <select id="items-per-page" value={itemsPerPage} onChange={handleItemsPerPageChange}>
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={15}>15</option>
+              </select>
+              <span>Resultados por página</span>
+            </div>
           </div>
           <div className="search-wrapper">
             <input type="text" placeholder="Busque aqui" />
           </div>
         </header>
-        
 
+        {/* Wrapper da tabela que permite rolagem horizontal em telas menores. */}
         <div className="table-wrapper">
           <table>
             <thead>
@@ -92,12 +90,14 @@ const Customers: React.FC = () => {
               </tr>
             </thead>
             <tbody>
+              {/* Mapeia os clientes da página atual para renderizar as linhas da tabela. */}
               {currentItems.map((client) => (
                 <tr key={client.id}>
                   <td data-label="Usuário">{client.name}</td>
                   <td data-label="Email">{client.email}</td>
                   <td data-label="Senha">{client.password}</td>
                   <td data-label="Status">
+                    {/* Renderização condicional da pílula de status. */}
                     <span className={`status ${client.status === 'ATIVO' ? 'status-active' : 'status-inactive'}`}>
                       {client.status}
                     </span>
@@ -114,6 +114,7 @@ const Customers: React.FC = () => {
           </table>
         </div>
 
+        {/* Rodapé com informações de contagem e controles de paginação. */}
         <footer className="table-footer">
           <span className="footer-info">
             Mostrando {indexOfFirstItem + 1} a {Math.min(indexOfLastItem, clients.length)} de {clients.length} registros
@@ -122,6 +123,7 @@ const Customers: React.FC = () => {
             <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
               Anterior
             </button>
+            {/* Mapeia o total de páginas para criar os botões de navegação. */}
             {Array.from({ length: totalPages }, (_, i) => i + 1).map(number => (
               <button
                 key={number}
