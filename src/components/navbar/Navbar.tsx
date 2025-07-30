@@ -9,13 +9,13 @@ const Navbar = ({sidebarOpen, openSidebar}) => {
                 <i className="bi bi-list" aria-hidden="true"></i>
             </div>
 
-            <div className="navbar__left">
+            <div className="navbar_left">
                 {/* <a href="#">Produtos</a>
                 <a href="#">Usuários</a>
                 <a href="#" className="active_link">Admin</a> */}
             </div>
 
-            <div className="navbar__right">
+            <div className="navbar_right">
                 <a href="#">
                     <img width="30" src={avatar} alt="avatar" />
                 </a>

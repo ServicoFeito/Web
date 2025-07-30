@@ -4,14 +4,14 @@ import './Main.css';
 const Main = () => {
     return (
         <main>
-            <div className="main__container">
-                <div className="main__title">
-                    <div className="main__greeting">
+            <div className="main_container">
+                <div className="main_title">
+                    <div className="main_greeting">
                         <h1>Dashboard</h1>
                     </div>
                 </div>
 
-                <div className="main__cards">
+                <div className="main_cards">
                     <div className="card main_cards_1">
                             <span className="text-title main_card_1">578</span>
                         <div className="card_inner">
@@ -47,8 +47,8 @@ const Main = () => {
                 </div>
 
                 <div className="charts">
-                    <div className="charts__left">
-                        <div className="charts__left__title">
+                    <div className="charts_left">
+                        <div className="charts_left_title">
                             <div>
                                 <h1>Daily Reports</h1>
                                 <p>Ubatuba, São Paulo, BR</p>
@@ -58,8 +58,8 @@ const Main = () => {
                         <Chart />
                     </div>
 
-                    <div className="charts__right">
-                        <div className="charts__right__title">
+                    <div className="charts_right">
+                        <div className="charts_right_title">
                             <div>
                                 <h1>Daily Reports</h1>
                                 <p>Ubatuba, São Paulo, BR</p>
@@ -67,7 +67,7 @@ const Main = () => {
                             <i className="fa fa-area-chart"></i>
                         </div>
 
-                        <div className="charts__right__cards">
+                        <div className="charts_right_cards">
                             <div className="card1">
                                 <h1>Lucro</h1>
                                 <p>R$2500</p>
