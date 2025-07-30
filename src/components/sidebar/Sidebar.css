@@ -1,3 +1,4 @@
+/* Estilo principal do container da sidebar. */
 #sidebar {
     background: #29442a;
     grid-area: sidebar;
@@ -7,6 +8,7 @@
     transition: all 0.5s;
 }
 
+/* Estilo do título/cabeçalho da sidebar. */
 .sidebar_title {
     display: flex;
     justify-content: space-between;
@@ -15,27 +17,32 @@
     margin-bottom: 30px;
 }
 
+/* Alinhamento da imagem e título no cabeçalho. */
 .sidebar_img {
     display: flex;
     align-items: center;
 }
 
+/* Estilo da imagem (logo) no cabeçalho. */
 .sidebar_title > div > img {
     width: 55px;
     object-fit: contain;
 }
 
+/* Estilo do texto do título no cabeçalho. */
 .sidebar_title > div > h1 {
     font-size: 18px;
     display: inline;
     margin-left: 15px;
 }
 
+/* Ícone de fechar (X), oculto em telas maiores. */
 .sidebar_title > i {
     font-size: 18px;
     display: none;
 }
 
+/* Estilo para os títulos das seções de menu (atualmente não utilizado no JSX). */
 .sidebar_menu > h2 {
     color: #3ea175;
     font-size: 16px;
@@ -45,6 +52,7 @@
     font-weight: 700;
 }
 
+/* Estilo base para um item de menu principal que possui submenu. */
 .sidebar_menu_item {
     display: flex;
     justify-content: space-between;
@@ -57,35 +65,42 @@
     transition: background 0.2s ease-in-out;
 }
 
+/* Efeito visual ao passar o mouse sobre um item de menu. */
 .sidebar_menu_item:hover {
     background: rgba(62, 161, 117, 0.2);
 }
 
+/* Alinhamento do título e ícone dentro de um item de menu. */
 .sidebar_menu_item_title {
     display: flex;
     align-items: center;
     font-weight: 700;
 }
 
+/* Estilo do ícone dentro do título do item de menu. */
 .sidebar_menu_item_title i {
     margin-right: 10px;
     font-size: 18px;
 }
 
+/* Estilo da seta (chevron) de abrir/fechar submenu. */
 .sidebar_menu_item > i {
     font-size: 16px;
     color: #a5aaad;
 }
 
+/* Estilo do container que agrupa os links de um submenu. */
 .sidebar_submenu {
-    padding-left: 20px; 
+    padding-left: 20px;
     margin-top: 5px;
 }
 
-.decoration_none{
+/* Classe utilitária para remover a decoração de texto dos links. */
+.decoration_none {
     text-decoration: none !important;
 }
 
+/* Estilo base para um link de navegação (principal ou de submenu). */
 .sidebar_link {
     color: #f3f4f6;
     padding: 10px;
@@ -93,38 +108,45 @@
     margin-bottom: 5px;
 }
 
+/* Classe para destacar o item de menu principal ativo. */
 .active_menu_link {
     background: rgba(62, 161, 117, 0.3);
     color: #3ea175;
 }
 
+/* Ajusta a cor do texto do link quando o menu principal está ativo. */
 .active_menu_link a {
     color: #3ea175 !important;
 }
 
+/* Estilo do texto dos links dentro de .sidebar_link. */
 .sidebar_link > a {
     text-decoration: none;
     color: #a5aaad;
     font-weight: 700;
 }
 
+/* Classe para destacar o link de submenu ativo. */
 .sidebar_link_focus {
     padding: 7px;
     background: #396045;
     border-radius: 3px;
 }
 
+/* Estilo para os ícones dentro dos links. */
 .sidebar_link > i {
     margin-right: 10px;
     font-size: 18px;
 }
 
+/* Estilo para a seção de logout. */
 .sidebar_logout {
     margin-top: 20px;
     padding: 10px;
     color: #e65061;
 }
 
+/* Estilo do link de texto "Sair". */
 .sidebar_logout > a {
     text-decoration: none;
     color: #e65061;
@@ -132,11 +154,13 @@
     text-transform: uppercase;
 }
 
+/* Estilo do ícone de logout. */
 .sidebar_logout > i {
     margin-right: 10px;
     font-size: 18px;
 }
 
+/* Classe aplicada para exibir a sidebar em modo responsivo (telas menores). */
 .sidebar-responsive {
     display: inline !important;
     z-index: 9999 !important;
@@ -144,12 +168,15 @@
     position: absolute;
 }
 
+/* Responsividade para telas médias e pequenas. */
 @media only screen and (max-width: 978px) {
+    /* Esconde a sidebar por padrão em telas menores. */
     #sidebar {
         display: none;
         height: 100%;
     }
 
+    /* Exibe o ícone de fechar (X) na sidebar em telas menores. */
     .sidebar_title > i {
         display: inline;
     }
