@@ -1,0 +1,295 @@
+/*
+ * Camada de sobreposição (overlay) para a modal.
+ * Cobre toda a tela e centraliza o conteúdo da modal.
+ */
+.modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/*
+ * Estilo principal do container do conteúdo da modal.
+ */
+.modal_content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 650px;
+    position: relative;
+    cursor: auto;
+}
+
+/*
+ * Botão de fechar (X) da modal.
+ */
+.modal_close_btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/* Efeito de hover para o botão de fechar */
+.modal_close_btn:hover {
+    color: #000;
+}
+
+/*
+ * Cabeçalho da modal, contendo o título.
+ */
+.modal_header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+/*
+ * Corpo da modal, onde o formulário está localizado.
+ */
+.modal_body {
+    margin-top: 1.5rem;
+}
+
+/*
+ * Define um grid para organizar os campos do formulário.
+ */
+.form_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/*
+ * Container para cada grupo de label e input.
+ */
+.form_group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/*
+ * Modificador para um 'form_group' que deve ocupar toda a largura do grid.
+ */
+.form_group.full_width {
+    grid-column: 1 / -1;
+}
+
+/* Estilo para a tag 'label' de um 'form_group' */
+.form_group label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #555;
+}
+
+/*
+ * Container para o ícone e o campo de input.
+ */
+.input_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/*
+ * Estilo para o ícone dentro do campo de input.
+ */
+.input_wrapper .input_icon {
+    position: absolute;
+    left: 12px;
+    color: #999;
+    font-size: 16px;
+}
+
+/*
+ * Estilo padrão para todos os campos de input e select do formulário.
+ */
+.form_group input,
+.form_group select {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #dfe1e6;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/*
+ * Efeito de foco para os inputs e selects.
+ */
+.form_group input:focus,
+.form_group select:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+}
+
+/*
+ * Rodapé da modal.
+ * Alinha os botões à direita com um espaçamento.
+ */
+.modal_footer {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem; /* Adicionado: Espaço entre os botões "Fechar" e "Cadastrar" */
+}
+
+/* Responsividade para o formulário */
+@media (max-width: 780px) {
+    /*
+ * Estilo principal do container do conteúdo da modal.
+ */
+    .modal_content {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        width: 90%;
+        max-width: 650px;
+        position: relative;
+        cursor: auto;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .form_grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- INÍCIO: Estilos Adicionados --- */
+
+/*
+ * Container para o grupo de botões de rádio customizados.
+ * Usa flexbox para alinhar as opções lado a lado.
+ */
+.radio_group_container {
+    display: flex;
+    gap: 1rem;
+    grid-column: 1 / -1; /* Faz ocupar a largura toda no grid */
+}
+
+/*
+ * Estilo para cada opção de rádio (o 'botão' clicável).
+ * Este é o container que se parece com um botão.
+ */
+.radio_label {
+    flex-grow: 1; /* Faz com que as opções ocupem o espaço disponível igualmente */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 10px;
+    border: 1px solid #dfe1e6;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Efeito de hover para a opção de rádio */
+.radio_label:hover {
+    border-color: #a0a0a0;
+}
+
+/*
+ * Esconde o input de rádio original, pois vamos criar um visual customizado.
+ */
+.radio_label input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/*
+ * Cria o círculo externo do nosso botão de rádio customizado.
+ */
+.radio_custom {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    position: relative;
+    transition: border-color 0.2s ease;
+}
+
+/*
+ * Cria o círculo interno (a bolinha verde) que aparece quando a opção é selecionada.
+ * Por padrão, ele é invisível (scale(0)).
+ */
+.radio_custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #28a745;
+    transition: transform 0.2s ease;
+}
+
+/*
+ * Mágica do CSS: Quando o input original escondido está 'marcado' (:checked),
+ * o círculo interno do nosso rádio customizado aparece (scale(1)).
+ */
+.radio_label input[type="radio"]:checked + .radio_custom::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/*
+ * Quando o input original está 'marcado', também mudamos a borda da caixa e do círculo.
+ */
+.radio_label input[type="radio"]:checked ~ .radio_custom {
+    border-color: #28a745;
+}
+.radio_label input[type="radio"]:checked ~ span {
+    color: #333; /* Opcional: pode escurecer o texto quando selecionado */
+}
+
+/*
+ * Estilo para o botão "Fechar" (secundário e de perigo).
+ * A cor principal do texto e da borda é vermelha.
+ */
+.secondary_button {
+    background-color: transparent;
+    color: #dc3545; /* Alterado: Vermelho */
+    padding: 12px 24px;
+    border: 1px solid #dc3545; /* Alterado: Vermelho */
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/*
+ * Efeito de hover para o botão "Fechar".
+ * O fundo fica levemente avermelhado e o texto escurece.
+ */
+.secondary_button:hover {
+    background-color: #f8d7da; /* Alterado: Fundo vermelho claro */
+    border-color: #b02a37; /* Alterado: Borda vermelha escura */
+    color: #b02a37;      /* Alterado: Texto vermelho escuro */
+}

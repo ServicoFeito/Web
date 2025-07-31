@@ -1,32 +1,44 @@
-/* Estilos Globais para a página*/
+/*
+ * Estilos Globais para a página.
+ * Define a cor de fundo, a família de fontes padrão e a cor do texto.
+ */
 body {
-  background-color: #f0f2f5;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #333;
+    background-color: #f0f2f5;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #333;
 }
 
-/* Container principal com efeito de card */
+/*
+ * Container principal que envolve a tabela e seus controles.
+ * Apresenta um fundo branco, bordas arredondadas e uma sombra sutil para criar um efeito de card.
+ */
 .client_table_container {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 24px;
-  margin: 40px auto;
-  max-width: 90%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 40px auto;
+    max-width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
-/* Cabeçalho: Controles e Busca */
+/*
+ * Cabeçalho da área da tabela.
+ * Usa flexbox para alinhar os controles (título, seletor) e a busca em lados opostos.
+ */
 .table_header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-  gap: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
-/* Seletor de itens por página */
+/*
+ * Container para o seletor de itens por página.
+ * Alinha o texto "Exibir", o select e o texto "Resultados por página".
+ */
 .items_per_page_selector {
     display: flex;
     align-items: center;
@@ -35,7 +47,9 @@ body {
     color: #555;
 }
 
-/* Estilização do select do seletor de itens por página */
+/*
+ * Estilização específica do elemento <select> dentro do seletor de itens por página.
+ */
 .items_per_page_selector select {
     border: 1px solid #dfe1e6;
     border-radius: 6px;
@@ -44,259 +58,313 @@ body {
     background-color: #fff;
 }
 
-/* Estilização do foco do select */
+/*
+ * Efeito de foco para o <select>, destacando-o quando ativo.
+ */
 .items_per_page_selector select:focus {
     outline: none;
     border-color: #ccff00;
 }
 
-/* Wrapper do título "Clientes" */
+/*
+ * Container para o título principal da tabela ("Clientes").
+ */
 .title_wrapper {
     margin-bottom: 24px;
 }
 
-/* Estilização do título H1 */
+/*
+ * Estilo do título <h1>.
+ */
 .title_wrapper h1 {
-  font-size: 24px;
-  font-weight: 600;
-  margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
 }
 
-/* Estilização do campo de busca */
+/*
+ * Estilo do campo de busca <input>.
+ * Define bordas arredondadas e transições suaves.
+ */
 .search_wrapper input {
-  border: 1px solid #dfe1e6;
-  border-radius: 20px;
-  padding: 10px 16px;
-  font-size: 14px;
-  width: 250px;
-  transition: all 0.2s ease-in-out;
+    border: 1px solid #dfe1e6;
+    border-radius: 20px;
+    padding: 10px 16px;
+    font-size: 14px;
+    width: 250px;
+    transition: all 0.2s ease-in-out;
 }
 
-/* Estilização do foco do campo de busca */
+/*
+ * Efeito de foco para o campo de busca, com uma borda e sombra coloridas.
+ */
 .search_wrapper input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
-/* Wrapper da tabela para rolagem horizontal em telas pequenas */
+/*
+ * Container que envolve a tabela, permitindo rolagem horizontal em telas pequenas.
+ */
 .table_wrapper {
-  overflow-x: auto;
+    overflow-x: auto;
 }
 
-/* Estilização base da tabela */
+/*
+ * Estilização base da tabela.
+ * Garante que ela ocupe toda a largura disponível.
+ */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  white-space: nowrap;
-}
-
-/* Estilização das células do cabeçalho e do corpo da tabela */
-th, td {
-  padding: 16px;
-  text-align: left;
-  border-bottom: 1px solid #f0f0f0;
-  font-size: 14px;
-  vertical-align: middle;
-}
-
-/* Estilização das células do cabeçalho da tabela (thead) */
-thead th {
-  background-color: #fafafa;
-  font-weight: 600;
-  color: #555;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-/* Efeito hover nas linhas do corpo da tabela */
-tbody tr:hover {
-  background-color: #f9f9f9;
-}
-
-/* Estilização base para as pílulas de status */
-.status {
-  padding: 6px 12px;
-  border-radius: 16px;
-  font-weight: 700;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-/* Estilização para o status "ATIVO" */
-.status_active {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-/* Estilização para o status "INATIVO" */
-.status_inactive {
-  background-color: #f8d7da;
-  color: #721c24;
-}
-
-/* Célula que contém os botões de ações */
-.actions_cell {
-  display: flex;
-  gap: 8px;
-}
-
-/* Estilização base dos botões de ação */
-.action_btn {
-  border: none;
-  border-radius: 8px;
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  font-size: 16px;
-}
-
-/* Efeito hover para os botões de ação */
-.action_btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilização específica para cada botão de ação (editar, deletar, ativar, visualizar) */
-.action_btn.edit      { background-color: #e0f2fe; color: #0ea5e9; }
-.action_btn.delete    { background-color: #fee2e2; color: #ef4444; }
-.action_btn.activate  { background-color: #dcfce7; color: #22c55e; }
-.action_btn.view      { background-color: #ffedd5; color: #f97316; }
-
-/* Rodapé da tabela */
-.table_footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid #f0f0f0;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-/* Informações de texto no rodapé */
-.footer_info {
-  font-size: 14px;
-  color: #666;
-}
-
-/* Controles de paginação */
-.pagination_controls {
-  display: flex;
-  gap: 8px;
-}
-
-/* Botões dentro dos controles de paginação */
-.pagination_controls button {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 8px 14px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-/* Efeito hover para os botões de paginação (exceto desabilitados) */
-.pagination_controls button:hover:not(:disabled) {
-  background-color: #abf5ae;
-  border-color: #abf5ae;
-}
-
-/* Estilização para botões de paginação desabilitados */
-.pagination_controls button:disabled {
-  color: #aaa;
-  cursor: not-allowed;
-}
-
-/* Estilização para o botão de página ativa */
-.pagination_controls button.active {
-  background-color: #4daf50;
-  color: white;
-  border-color: #4daf50;
-  font-weight: bold;
-}
-
-/* --- Início das regras de design responsivo para telas menores --- */
-@media (max-width: 768px) {
-
-  /* Container principal com efeito de card */
-  .client_table_container {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 24px;
-    margin: 40px auto;
-    max-width: 85%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-  }
-
-  /* Reorganiza o cabeçalho em telas menores */
-  .table_header {
-    flex-direction: column-reverse;
-    align-items: stretch;
-  }
-
-  /* Faz o campo de busca ocupar a largura total */
-  .search_wrapper input {
-      width: 60%;
-  }
-
-  /* Centraliza o conteúdo do rodapé em telas menores */
-  .table_footer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Centraliza os controles de paginação */
-  .pagination_controls {
     width: 100%;
-    justify-content: center;
-  }
+    border-collapse: collapse;
+    white-space: nowrap;
+}
 
-  /* Oculta o cabeçalho da tabela tradicional */
-  thead {
-    display: none;
-  }
+/*
+ * Estilo geral para as células do cabeçalho (th) e do corpo (td).
+ * Define o preenchimento, alinhamento e a linha divisória inferior.
+ */
+th,
+td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    vertical-align: middle;
+}
 
-  /* Transforma as linhas da tabela em blocos */
-  tr {
-    display: block;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
+/*
+ * Estilo específico para as células do cabeçalho da tabela (thead).
+ * Define um fundo, peso de fonte e capitalização do texto.
+ */
+thead th {
+    background-color: #fafafa;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+/*
+ * Efeito de hover para as linhas do corpo da tabela (tbody).
+ * Muda a cor de fundo da linha quando o mouse passa por cima.
+ */
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/*
+ * Estilo base para as "pílulas" de status.
+ * Define o formato geral, arredondamento e fonte.
+ */
+.status {
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/*
+ * Cor específica para a pílula de status "ATIVO".
+ */
+.status_active {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/*
+ * Cor específica para a pílula de status "INATIVO".
+ */
+.status_inactive {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/*
+ * Célula que contém os botões de ações (editar, deletar, etc.).
+ * Usa flexbox para alinhar os botões com um espaçamento.
+ */
+.actions_cell {
+    display: flex;
+    gap: 8px;
+}
+
+/*
+ * Estilo base para os botões de ação individuais.
+ * Define o tamanho, formato e remove a borda padrão.
+ */
+.action_btn {
+    border: none;
     border-radius: 8px;
-    padding: 8px;
-  }
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 16px;
+}
 
-  /* Transforma as células em um layout flexível com rótulos */
-  td {
+/*
+ * Efeito de hover para os botões de ação.
+ * Aplica uma leve elevação e sombra para dar feedback ao usuário.
+ */
+.action_btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*
+ * Cores específicas para cada tipo de botão de ação.
+ */
+.action_btn.edit { background-color: #e0f2fe; color: #0ea5e9; }
+.action_btn.delete { background-color: #fee2e2; color: #ef4444; }
+.action_btn.activate { background-color: #dcfce7; color: #22c55e; }
+.action_btn.view { background-color: #ffedd5; color: #f97316; }
+
+/*
+ * Rodapé da tabela.
+ * Alinha as informações de contagem e os controles de paginação.
+ */
+.table_footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: none;
-    padding: 12px 8px;
-  }
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+    flex-wrap: wrap;
+    gap: 16px;
+}
 
-  /* Adiciona uma borda inferior entre as células, exceto a última */
-  td:not(:last-child) {
-    border-bottom: 1px solid #f0f0f0;
-  }
+/*
+ * Estilo para o texto de informação no rodapé (ex: "Mostrando 1 a 5 de 12 registros").
+ */
+.footer_info {
+    font-size: 14px;
+    color: #666;
+}
 
-  /* Adiciona um rótulo de dados (data-label) antes do conteúdo da célula */
-  td::before {
-    content: attr(data-label);
+/*
+ * Container para os botões de controle da paginação.
+ */
+.pagination_controls {
+    display: flex;
+    gap: 8px;
+}
+
+/*
+ * Estilo geral para os botões de paginação.
+ */
+.pagination_controls button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/*
+ * Efeito de hover para os botões de paginação, exceto quando desabilitados.
+ */
+.pagination_controls button:hover:not(:disabled) {
+    background-color: #abf5ae;
+    border-color: #abf5ae;
+}
+
+/*
+ * Estilo para botões de paginação desabilitados.
+ */
+.pagination_controls button:disabled {
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+/*
+ * Estilo para o botão que representa a página atualmente ativa.
+ */
+.pagination_controls button.active {
+    background-color: #4daf50;
+    color: white;
+    border-color: #4daf50;
     font-weight: bold;
-    margin-right: 16px;
-    color: #333;
-  }
+}
 
-  /* Alinha os botões de ação à direita na célula */
-  .actions_cell {
+/*
+ * Bloco de media query para design responsivo em telas menores (max-width: 768px).
+ */
+@media (max-width: 768px) {
+    /*
+     * Reorganiza o cabeçalho para um layout de coluna em telas pequenas.
+     */
+    .table_header {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+    /*
+     * Faz o campo de busca ocupar toda a largura disponível.
+     */
+    .search_wrapper input {
+        width: 50%;
+    }
+    /*
+     * Centraliza o conteúdo do rodapé em um layout de coluna.
+     */
+    .table_footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    /*
+     * Oculta o cabeçalho tradicional da tabela (thead).
+     * As informações serão exibidas através dos pseudo-elementos ::before.
+     */
+    thead {
+        display: none;
+    }
+    /*
+     * Transforma cada linha (tr) da tabela em um bloco tipo card.
+     */
+    tr {
+        display: block;
+        margin-bottom: 16px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 8px;
+    }
+    /*
+     * Transforma cada célula (td) para que ocupe uma linha inteira, com o rótulo e o valor.
+     */
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: none;
+        padding: 12px 8px;
+    }
+    /*
+     * Adiciona o rótulo de dados (ex: "Usuário:", "Email:") antes do conteúdo da célula,
+     * usando o valor do atributo 'data-label'.
+     */
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 16px;
+        color: #333;
+    }
+}
+
+/*
+ * Container para o botão de ação principal da página (ex: "Cadastrar").
+ * Alinha o botão à direita, acima do container da tabela.
+ */
+.page_action_container {
+    display: flex;
     justify-content: flex-end;
-  }
+    max-width: 90%;
+    margin: 20px auto -20px;
 }

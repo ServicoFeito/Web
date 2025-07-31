@@ -1,0 +1,29 @@
+/*
+ * Estilo base para o componente de botão reutilizável.
+ * Define a cor de fundo, cor do texto, preenchimento, bordas,
+ * e outras propriedades visuais fundamentais.
+ */
+.reusable_button {
+  background-color: #28a745; /* Verde sucesso */
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre o ícone e o texto, se houver */
+}
+
+/*
+ * Efeito de hover para o botão.
+ * Escurece levemente o fundo e aplica uma sutil animação
+ * de translação para dar feedback ao usuário.
+ */
+.reusable_button:hover {
+  background-color: #218838; 
+  transform: translateY(-2px);
+}

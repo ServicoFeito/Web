@@ -12,20 +12,20 @@ import Customers from "./routes/users/customers/Customers";
 import Provider from "./routes/users/Provider";
 import Admin from "./routes/users/Admin";
 //Import 404
-import Error404 from "./routes/404/Error404";
+// import Error404 from "./routes/404/Error404";
 
 const router = createBrowserRouter([
   {
     // Rota de Login, sozinha na raiz
     path: "/",
     element: <Login />,
-    errorElement: <Error404 />,
+    // errorElement: <Error404 />,
   },
   {
     // Este objeto aplica o layout <App /> a todos os filhos,
     // mas NÃO adiciona um prefixo ao URL.
     element: <App />,
-    errorElement: <Error404 />,
+    // errorElement: <Error404 />,
     children: [
       {
         path: "/home",
