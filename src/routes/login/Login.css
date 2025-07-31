@@ -10,7 +10,7 @@
 }
 
 /* Estilo da página inteira para centralizar o conteúdo */
-.login-page {
+.login_page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 /* Container principal do formulário */
-.login-container {
+.login_container {
   background-color: var(--container-bg);
   padding: 2.5rem;
   border-radius: 10px;
@@ -35,13 +35,13 @@
 }
 
 /* Estilo da sua logo */
-.login-logo {
+.login_logo {
   max-width: 150px;
   margin-bottom: 2rem;
 }
 
 /* Estilo do placeholder caso não tenha uma imagem da logo */
-.login-logo-placeholder {
+.login_logo_placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,18 +49,18 @@
 }
 
 /* Estilização do formulário */
-.login-form {
+.login_form {
   width: 100%;
 }
 
 /* Agrupamento dos campos de input */
-.input-group {
+.input_group {
   margin-bottom: 1.25rem;
   width: 100%;
 }
 
 /* Estilo dos campos de input */
-.login-input {
+.login_input {
   width: 100%;
   padding: 0.9rem;
   border: 1px solid var(--border-color);
@@ -71,19 +71,19 @@
 }
 
 /* Estilo do texto placeholder dentro do input */
-.login-input::placeholder {
+.login_input::placeholder {
   color: var(--placeholder-color);
 }
 
 /* Estilo do input ao receber foco */
-.login-input:focus {
+.login_input:focus {
   outline: none;
   border-color: var(--primary-green);
   box-shadow: 0 0 0 3px rgba(101, 184, 109, 0.2);
 }
 
 /* Estilo do botão de login */
-.login-button {
+.login_button {
   width: 100%;
   padding: 0.9rem;
   background-color: var(--primary-green);
@@ -98,26 +98,26 @@
 }
 
 /* Efeito hover para o botão de login */
-.login-button:hover {
+.login_button:hover {
   background-color: var(--primary-green-hover);
   transform: translateY(-2px);
 }
 
 /* Efeito de clique no botão de login */
-.login-button:active {
+.login_button:active {
   transform: translateY(0);
 }
 
 /* Bloco de estilos para responsividade em telas menores */
 @media (max-width: 480px) {
   /* Ajustes no container do formulário para telas pequenas */
-  .login-container {
+  .login_container {
     padding: 2rem;
     margin: 0 1rem;
   }
 
   /* Ajustes na logo para telas pequenas */
-  .login-logo {
+  .login_logo {
     max-width: 120px;
   }
 }

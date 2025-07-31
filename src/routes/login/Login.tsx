@@ -13,35 +13,35 @@ const Login: React.FC = () => {
 
   return (
     // Contêiner principal que centraliza o conteúdo da página.
-    <div className="login-page">
-      <div className="login-container">
+    <div className="login_page">
+      <div className="login_container">
 
-        <div className="login-logo-placeholder">
+        <div className="login_logo_placeholder">
           <img src={logo} alt="logo" />
         </div>
 
-        <form onSubmit={handleLogin} className="login-form">
-          <div className="input-group">
+        <form onSubmit={handleLogin} className="login_form">
+          <div className="input_group">
             <input
               type="text"
               id="username"
-              className="login-input"
+              className="login_input"
               placeholder="Usuário"
               required
             />
           </div>
-          <div className="input-group">
+          <div className="input_group">
             <input
               type="password"
               id="password"
-              className="login-input"
+              className="login_input"
               placeholder="Senha"
               required
             />
           </div>
 
           <Link to="/home">
-            <button type="submit" className="login-button">
+            <button type="submit" className="login_button">
               ENTRAR
             </button>
           </Link>

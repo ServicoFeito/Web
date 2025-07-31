@@ -10,14 +10,14 @@ const Error404 = () => {
  
   return (
     // Contêiner principal que ocupa toda a tela e centraliza o conteúdo.
-    <div className="not-found-page">
-      <div className="not-found-container">
-        <h1 className="error-code">404</h1>
-        <p className="error-message">Oops! Página não encontrada</p>
-        <p className="error-description">
+    <div className="not_found_page">
+      <div className="not_found_container">
+        <h1 className="error_code">404</h1>
+        <p className="error_message">Oops! Página não encontrada</p>
+        <p className="error_description">
           A página que você está procurando não existe ou foi movida.
         </p>
-        <button onClick={handleGoBack} className="back-button">
+        <button onClick={handleGoBack} className="back_button">
           Voltar
         </button>
       </div>

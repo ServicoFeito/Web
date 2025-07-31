@@ -47,22 +47,17 @@ const Customers: React.FC = () => {
     setCurrentPage(1);
   };
 
-  const handleEdit = (id: number) => alert(`Editar cliente ID: ${id}`);
-  const handleDelete = (id: number) => alert(`Deletar cliente ID: ${id}`);
-  const handleActivate = (id: number) => alert(`Ativar cliente ID: ${id}`);
-  const handleView = (id: number) => alert(`Visualizar cliente ID: ${id}`);
-
   return (
     <main>
       {/* Container principal da tabela de clientes. */}
-      <div className="client-table-container">
+      <div className="client_table_container">
         {/* Cabeçalho com título, controles e campo de busca. */}
-        <header className="table-header">
+        <header className="table_header">
           <div className="table-controls">
-            <div className="title-wrapper">
+            <div className="title_wrapper">
               <h1>Clientes</h1>
             </div>
-            <div className="items-per-page-selector">
+            <div className="items_per_page_selector">
               <label htmlFor="items-per-page">Exibir</label>
               <select id="items-per-page" value={itemsPerPage} onChange={handleItemsPerPageChange}>
                 <option value={5}>5</option>
@@ -72,13 +67,13 @@ const Customers: React.FC = () => {
               <span>Resultados por página</span>
             </div>
           </div>
-          <div className="search-wrapper">
+          <div className="search_wrapper">
             <input type="text" placeholder="Busque aqui" />
           </div>
         </header>
 
         {/* Wrapper da tabela que permite rolagem horizontal em telas menores. */}
-        <div className="table-wrapper">
+        <div className="table_wrapper">
           <table>
             <thead>
               <tr>
@@ -98,15 +93,15 @@ const Customers: React.FC = () => {
                   <td data-label="Senha">{client.password}</td>
                   <td data-label="Status">
                     {/* Renderização condicional da pílula de status. */}
-                    <span className={`status ${client.status === 'ATIVO' ? 'status-active' : 'status-inactive'}`}>
+                    <span className={`status ${client.status === 'ATIVO' ? 'status_active' : 'status_inactive'}`}>
                       {client.status}
                     </span>
                   </td>
-                  <td data-label="Operações" className="actions-cell">
-                    <button onClick={() => handleEdit(client.id)} className="action-btn edit" aria-label="Editar">✏️</button>
-                    <button onClick={() => handleDelete(client.id)} className="action-btn delete" aria-label="Deletar">🗑️</button>
-                    <button onClick={() => handleActivate(client.id)} className="action-btn activate" aria-label="Ativar">✔️</button>
-                    <button onClick={() => handleView(client.id)} className="action-btn view" aria-label="Visualizar">👁️</button>
+                  <td data-label="Operações" className="actions_cell">
+                    <button className="action_btn edit" aria-label="Editar"><i className="bi bi-pencil-square"></i></button>
+                    <button className="action_btn delete" aria-label="Deletar"><i className="bi bi-trash3-fill"></i></button>
+                    <button className="action_btn activate" aria-label="Ativar"><i className="bi bi-check-square-fill"></i></button>
+                    <button className="action_btn view" aria-label="Visualizar"><i className="bi bi-eye-fill"></i></button>
                   </td>
                 </tr>
               ))}
@@ -115,11 +110,11 @@ const Customers: React.FC = () => {
         </div>
 
         {/* Rodapé com informações de contagem e controles de paginação. */}
-        <footer className="table-footer">
-          <span className="footer-info">
+        <footer className="table_footer">
+          <span className="footer_info">
             Mostrando {indexOfFirstItem + 1} a {Math.min(indexOfLastItem, clients.length)} de {clients.length} registros
           </span>
-          <div className="pagination-controls">
+          <div className="pagination_controls">
             <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
               Anterior
             </button>
