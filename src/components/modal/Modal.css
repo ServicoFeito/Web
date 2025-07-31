@@ -175,6 +175,20 @@
     }
 }
 
+
+@media (max-width: 490px) {
+      .modal_content {
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        width: 90%;
+        max-width: 650px;
+        position: relative;
+        cursor: auto;
+    }
+}
+
 /* --- INÍCIO: Estilos Adicionados --- */
 
 /*
@@ -240,8 +254,6 @@
 .radio_custom::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%) scale(0);
     width: 12px;
     height: 12px;

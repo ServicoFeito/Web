@@ -75,6 +75,7 @@
     display: flex;
     align-items: center;
     font-weight: 700;
+    color: #f3f4f6;
 }
 
 /* Estilo do ícone dentro do título do item de menu. */

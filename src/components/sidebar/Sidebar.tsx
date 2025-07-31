@@ -47,7 +47,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             {/* Container para todos os itens do menu. */}
             <div className="sidebar_menu">
                 <Link to="/home" className="decoration_none">
-                    <div className={`sidebar_link ${pathname === '/home' ? 'active_menu_link' : ''}`}>
+                    <div className={`sidebar_link sidebar_menu_item_title ${pathname === '/home' ? 'active_menu_link' : ''}`}>
                         <i className="bi bi-speedometer2"></i>
                         <span>DASHBOARD</span>
                     </div>
@@ -56,7 +56,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                 {/* --- SESSÃO MENU - USUÁRIOS --- */}
                 {/* Item de menu principal "Usuários" que controla a visibilidade do submenu. */}
                 <div
-                    className={`sidebar_link sidebar_menu_item ${pathname.startsWith('/users') ? 'active_menu_link' : ''}`}
+                    className={`sidebar_menu_item ${pathname.startsWith('/users') ? 'active_menu_link' : ''}`}
                     onClick={() => toggleMenu('users')}
                 >
                     <Link to="/users" className="decoration_none">

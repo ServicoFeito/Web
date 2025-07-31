@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-const Users = () => {
+function Users() {
   return (
     <div>
-      <h1>Users</h1>
+      
     </div>
   )
 }
