@@ -55,7 +55,6 @@ main {
     height: 10px;
     background-color: #4DAF50;
 }
-
 /* Adiciona a barra de cor específica para o card 2 */
 .main_cards_2::after {
     content: '';
