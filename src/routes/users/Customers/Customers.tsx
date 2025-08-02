@@ -39,20 +39,25 @@ interface Client {
 
 const Customers: React.FC = () => {
     // --- Estados e Hooks ---
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpenAddUser, setIsModalOpenAddUser] = useState(false);
+    const [isModalOpenEditUser, setIsModalOpenEditUser] = useState(false);
     const [gender, setGender] = useState<string>('masculino');
     const [clients] = useState<Client[]>(mockClients);
     const { ref: phoneRef } = useIMask({ mask: '(00) 00000-0000' });
 
     // --- Funções ---
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+    const openModalAddUser = () => setIsModalOpenAddUser(true);
+    const closeModalAddUser = () => setIsModalOpenAddUser(false);
+
+    const openModalEditUser = () => setIsModalOpenEditUser(true);
+    const closeModalEditUser = () => setIsModalOpenEditUser(false);
 
     const handleFormSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         // Aqui iria a lógica de validação e envio do formulário para a API
         alert('Usuário cadastrado com sucesso! (simulação)');
-        closeModal();
+        closeModalAddUser();
+        closeModalEditUser();
     };
 
     // --- Definição das Colunas para o DataTable ---
@@ -84,7 +89,7 @@ const Customers: React.FC = () => {
             render: (client) => (
                 <div className="actions_cell">
                     {/* Em um app real, cada botão teria sua própria função, ex: onClick={() => handleEdit(client.id)} */}
-                    <button className="action_btn edit" aria-label="Editar"><i className="bi bi-pencil-square"></i></button>
+                    <Button onClick={openModalEditUser}><i className="bi bi-pencil-square"></i></Button>
                     <button className="action_btn delete" aria-label="Deletar"><i className="bi bi-trash3-fill"></i></button>
                     <button className="action_btn activate" aria-label="Ativar"><i className="bi bi-check-square-fill"></i></button>
                     <button className="action_btn view" aria-label="Visualizar"><i className="bi bi-eye-fill"></i></button>
@@ -97,7 +102,7 @@ const Customers: React.FC = () => {
     return (
         <main>
             <div className="page_action_container">
-                <Button onClick={openModal}>
+                <Button onClick={openModalAddUser}>
                     <i className="bi bi-plus-lg"></i>
                     Cadastrar
                 </Button>
@@ -111,7 +116,7 @@ const Customers: React.FC = () => {
             />
 
             {/* O Modal de cadastro permanece como parte da lógica desta página específica. */}
-            <Modal title="Cadastrar Novo Usuário" isOpen={isModalOpen} onClose={closeModal}>
+            <Modal title="Cadastrar Novo Usuário" isOpen={isModalOpenAddUser} onClose={closeModalAddUser}>
                 <form>
                     <div className="form_grid">
                         <div className="form_group full_width">
@@ -195,11 +200,106 @@ const Customers: React.FC = () => {
                         </div>
                     </div>
                     <footer className="modal_footer">
-                        <button type="button" className="secondary_button" onClick={closeModal}>
-                            Fechar
+                        <button type="button" className="secondary_button" onClick={closeModalAddUser}>
+                            Cancelar
                         </button>
                         <Button onClick={handleFormSubmit} type="submit">
                             Cadastrar
+                        </Button>
+                    </footer>
+                </form>
+            </Modal>
+
+            {/* Modal de edição do Usuário. */}
+            <Modal title="Editar Usuário" isOpen={isModalOpenEditUser} onClose={closeModalEditUser}>
+                <form>
+                    <div className="form_grid">
+                        <div className="form_group full_width">
+                            <label htmlFor="name">Nome Completo</label>
+                            <div className="input_wrapper">
+                                <i className="bi bi-person input_icon"></i>
+                                <input type="text" id="name" placeholder="Digite o nome completo" />
+                            </div>
+                        </div>
+                        
+                        <div className="form_group full_width">
+                            <label htmlFor="email">Email</label>
+                            <div className="input_wrapper">
+                                <i className="bi bi-envelope input_icon"></i>
+                                <input type="email" id="email" placeholder="exemplo@dominio.com" />
+                            </div>
+                        </div>
+
+                        <div className="form_group">
+                            <label htmlFor="password">Senha</label>
+                            <div className="input_wrapper">
+                                <i className="bi bi-lock input_icon"></i>
+                                <input type="password" id="password" placeholder="••••••••" />
+                            </div>
+                        </div>
+
+                        <div className="form_group">
+                            <label htmlFor="confirm-password">Confirmar Senha</label>
+                            <div className="input_wrapper">
+                                <i className="bi bi-lock-fill input_icon"></i>
+                                <input type="password" id="confirm-password" placeholder="••••••••" />
+                            </div>
+                        </div>
+
+                        <div className="form_group full_width">
+                            <label htmlFor="phone">Telefone</label>
+                            <div className="input_wrapper">
+                                <i className="bi bi-telephone input_icon"></i>
+                                <input ref={phoneRef} type="tel" id="phone" placeholder="(00) 00000-0000"/>
+                            </div>
+                        </div>
+
+                        <div className="form_group full_width">
+                            <label htmlFor="role">Modalidade Profissional</label>
+                            <div className="input_wrapper">
+                                <i className="bi bi-briefcase input_icon"></i>
+                                <select id="role" defaultValue="">
+                                    <option value="" disabled>Selecione uma opção</option>
+                                    <option value="cliente">Cliente</option>
+                                    <option value="prestador">Prestador</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div className="form_group full_width">
+                            <label>Sexo</label>
+                            <div className="radio_group_container">
+                                <label className="radio_label">
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        value="masculino"
+                                        checked={gender === 'masculino'}
+                                        onChange={(e) => setGender(e.target.value)}
+                                    />
+                                    <span className="radio_custom"></span>
+                                    <span>Masculino</span>
+                                </label>
+                                <label className="radio_label">
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        value="feminino"
+                                        checked={gender === 'feminino'}
+                                        onChange={(e) => setGender(e.target.value)}
+                                    />
+                                    <span className="radio_custom"></span>
+                                    <span>Feminino</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <footer className="modal_footer">
+                        <button type="button" className="secondary_button" onClick={closeModalEditUser}>
+                            Cancelar
+                        </button>
+                        <Button onClick={handleFormSubmit} type="submit">
+                            Editar
                         </Button>
                     </footer>
                 </form>
